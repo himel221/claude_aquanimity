@@ -1,43 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aquanimity BioHubs | BioPlatform for Bangladesh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+         <!-- Add Red Hat Display Font with all weights including Black (900) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Red Hat Display', Arial, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+    
+    .wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    
+    @media (max-width: 768px) {
+      .wrap {
+        padding: 0 20px;
+      }
+    }
+    
+    .serif {
+      font-family: 'Times New Roman', Georgia, serif;
+    }
+    
+    .mono {
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+    }
+    
+    .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    
+    .img-frame {
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    
+    .img-frame:hover img {
+      transform: scale(1.02);
+    }
+    
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    #scrollBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--accent);
+      z-index: 9999;
+      width: 0%;
+      transition: width 0.1s ease;
+    }
+    
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #FAF7F0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.6s ease;
+    }
+    
+    /* CSS Variables for themes */
+    :root {
+      --bone: #F2EDE3;
+      --bone-2: #ECE5D6;
+      --paper: #FAF7F0;
+      --ink: #0E1B2C;
+      --ink-2: #1B2A3F;
+      --muted: #5C6677;
+      --rule: #D8D0BE;
+      --accent: #1F6E7A;
+      --accent-2: #4FA0AC;
+      --accent-soft: #BFD4D5;
+      --bubbleHi: #A8D0D6;
+      --bubbleMid: #5FA0AC;
+      --bubbleLo: #1F6E7A;
+      --bubbleHalo: #BFD4D5;
+    }
+  </style>
+  
+  <!-- AQUANIMITY DATA - Complete dataset with proper image paths -->
+  <script id="aquanimity-data" type="application/json">
+    {
+      "institutes": [
+        {
+          "n": "01",
+          "tag": "Research · Synthetic Biology",
+          "title": "Institute for Synthetic Biology",
+          "blurb": "Engineering biological systems for climate resilience and human health using cutting-edge gene editing and metabolic engineering."
+        },
+        {
+          "n": "02",
+          "tag": "Research · Genomics",
+          "title": "Institute for Genomic Medicine",
+          "blurb": "Precision medicine for the Global South, focusing on genetic disorders prevalent in Bangladesh and South Asia."
+        },
+        {
+          "n": "03",
+          "tag": "Research · Climate",
+          "title": "Institute for Climate Resilience",
+          "blurb": "Developing climate-adapted crops and carbon capture solutions for the Bay of Bengal region."
+        },
+        {
+          "n": "04",
+          "tag": "Research · Aquaculture",
+          "title": "Institute for Blue Economy",
+          "blurb": "Sustainable aquaculture and marine biotechnology for coastal communities."
+        },
+        {
+          "n": "05",
+          "tag": "Research · AI",
+          "title": "Institute for Bio-Informatics",
+          "blurb": "Foundation models and AI-driven drug discovery for neglected tropical diseases."
+        }
+      ],
+      "ventures": [
+        {
+          "id": "superwater",
+          "n": "01",
+          "name": "SuperWater",
+          "stage": "Scale",
+          "founded": "2024",
+          "location": "Dhaka, BD",
+          "tag": "Clean water technology",
+          "blurb": "Revolutionizing water purification with bio-inspired filtration membranes for arsenic and microplastic removal.",
+          "video": "/images/aquanimity_video.mp4"
+        }
+      ],
+      "team": {
+        "Founding Scientists": [
+          {
+            "name": "Dr. Rafia Ahmed",
+            "title": "CEO & Founder",
+            "img": "https://randomuser.me/api/portraits/women/68.jpg",
+            "linkedin": "https://linkedin.com"
+          },
+          {
+            "name": "Dr. Shahidul Islam",
+            "title": "Chief Scientific Officer",
+            "img": "https://randomuser.me/api/portraits/men/32.jpg",
+            "linkedin": "https://linkedin.com"
+          },
+          {
+            "name": "Sarah Khan",
+            "title": "Chief Operating Officer",
+            "img": "https://randomuser.me/api/portraits/women/45.jpg",
+            "linkedin": "https://linkedin.com"
+          }
+        ],
+        "Founding Management": [
+          {
+            "name": "Dr. Tania Rahman",
+            "title": "Lead, Synthetic Biology",
+            "img": "https://randomuser.me/api/portraits/women/52.jpg",
+            "linkedin": "https://linkedin.com"
+          },
+          {
+            "name": "Dr. Michael Chen",
+            "title": "Lead, AI & Bioinformatics",
+            "img": "https://randomuser.me/api/portraits/men/75.jpg",
+            "linkedin": "https://linkedin.com"
+          }
+        ],
+        "Research Associates": [
+          {
+            "name": "Farhan Ahmed",
+            "title": "Head of Operations",
+            "img": "https://randomuser.me/api/portraits/men/41.jpg",
+            "linkedin": "https://linkedin.com"
+          }
+        ],
+        "Advisors": [
+          {
+            "name": "Farhan Ahmed",
+            "title": "Head of Operations",
+            "img": "https://randomuser.me/api/portraits/men/41.jpg",
+            "linkedin": "https://linkedin.com"
+          }
+        ]
+      },
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+      "partners": [
+        {
+          "name": "ABRI",
+          "short": "ABRI",
+          "kind": "Research Partner",
+          "blurb": "Leading international health research institution focused on pressing public health issues.",
+          "loc": "Dhaka, BD",
+          "since": "2024",
+          "logo": "/images/ibr.jpeg"
+        },
+        {
+          "name": "IQC",
+          "short": "IQC",
+          "kind": "Implementation Partner",
+          "blurb": "Global development organization based in Bangladesh, reaching millions across Asia and Africa.",
+          "loc": "Dhaka, BD",
+          "since": "2024",
+          "logo": "/images/iqc.jpeg"
+        },
+        {
+          "name": "Heart Foundation Bangladesh",
+          "short": "Heart Foundation Bangladesh",
+          "kind": "Academic Partner",
+          "blurb": "World-leading research university collaborating on synthetic biology and climate solutions.",
+          "loc": "Boston, USA",
+          "since": "2024",
+          "logo": "/images/heart.jpeg"
+        },
+        {
+          "name": "Diabetics Association of Bangladesh",
+          "short": "Diabetics Association of Bangladesh",
+          "kind": "Academic Partner",
+          "blurb": "Leading Asian university partnering on bio-manufacturing research.",
+          "loc": "Bangladesh",
+          "since": "2024",
+          "logo": "/images/dia.jpeg"
+        }
+      ],
+      "phases": [
+        {
+          "n": "01",
+          "title": "Discover",
+          "body": "Frontier research at the intersection of biology, computation, and climate science. Identifying breakthrough opportunities with global impact potential.",
+          "image": "/images/discover.jpg"
+        },
+        {
+          "n": "02",
+          "title": "Build",
+          "body": "Prototyping and validation in our GMP-ready labs and field sites. De-risking technology through rigorous testing and iteration.",
+          "image": "/images/build.jpg"
+        },
+        {
+          "n": "03",
+          "title": "Test",
+          "body": "Manufacturing, distribution, and market entry across South Asia. Building supply chains that serve the billion+ people of the region.",
+          "image": "/images/test.jpg"
+        },
+        {
+          "n": "04",
+          "title": "Launch",
+          "body": "Spin out as independent ventures backed by global capital. Creating category-defining companies that solve real problems.",
+          "image": "/images/launch.png"
+        }
+      ]
+    }
+  </script>
+</head>
+<body>
+  <div id="loader">
+    <div style="font-family: 'JetBrains Mono', monospace; letter-spacing: 0.2em; font-size: 14px;">
+      ⚡ LOADING AQUANIMITY ⚡
+    </div>
+  </div>
+  <div id="scrollBar"></div>
+  <div id="root"></div>
+  
+  <script>
+    // Remove loader after page load
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var loader = document.getElementById('loader');
+        if (loader) {
+          loader.style.opacity = '0';
+          setTimeout(function() {
+            if (loader) loader.remove();
+          }, 600);
+        }
+      }, 800);
+    });
+  </script>
+</body>
 </html>

@@ -1,0 +1,51 @@
+{
+  "institutes": [
+    {
+      "n": "01",
+      "tag": "Research",
+      "title": "Institute for Synthetic Biology",
+      "blurb": "Engineering biological systems..."
+    }
+  ],
+  "ventures": [
+    {
+      "id": "venture1",
+      "n": "01",
+      "name": "Venture Name",
+      "stage": "Growth",
+      "founded": "2024",
+      "location": "Dhaka",
+      "tag": "Tagline",
+      "blurb": "Description...",
+      "img": "/images/venture1.jpg"
+    }
+  ],
+  "team": {
+    "Leadership": [
+      {
+        "name": "Name",
+        "title": "Title",
+        "img": "/images/person.jpg",
+        "linkedin": "https://linkedin.com/in/..."
+      }
+    ]
+  },
+  "partners": [
+    {
+      "name": "Partner Name",
+      "short": "PN",
+      "kind": "Type",
+      "blurb": "Description",
+      "loc": "Location",
+      "since": "2024",
+      "logo": "/images/logo.png"
+    }
+  ],
+  "phases": [
+    {
+      "n": "01",
+      "title": "Discover",
+      "body": "Frontier research..."
+    }
+  ]
+}
