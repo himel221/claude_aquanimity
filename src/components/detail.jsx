@@ -1,5 +1,92 @@
 import React, { useState, useEffect, useRef } from 'react';
 
+// Data for the application
+const appData = {
+  ventures: [
+    { id: "superwater", n: "01", name: "SuperWater", blurb: "Bio-inspired water filtration for arsenic-free drinking water.", tag: "Bio-inspired water purification", stage: "seed", founded: "2024", location: "Dhaka, BD", img: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=800&h=600&fit=crop" },
+    { id: "thermorevax", n: "02", name: "ThermoReVax", blurb: "Thermostable vaccine platform for last-mile delivery.", tag: "Thermostable vaccine platform", stage: "pre-seed", founded: "2024", location: "Dhaka, BD", img: "https://images.unsplash.com/photo-1582719505981-e2f3d5a6b0b4?w=800&h=600&fit=crop" },
+    { id: "bluemicrobiome", n: "03", name: "Blue Microbiome", blurb: "Probiotic solutions for sustainable aquaculture.", tag: "Aquaculture biotech", stage: "lab", founded: "2024", location: "Khulna, BD", img: "https://images.unsplash.com/photo-1582967788606-a171c1080cb0?w=800&h=600&fit=crop" }
+  ],
+  institutes: [
+    { 
+      n: "01", 
+      title: "Institute of Health Sciences", 
+      blurb: "Translating biology into daily health solutions for metabolic health, preventive nutrition, and functional beverages.", 
+      tag: "Health Sciences",
+      fullDescription: `The Institute of Health Sciences develops evidence-backed health products for metabolic health, preventive nutrition, functional beverages, and phytopharmaceutical innovation. Its mission is to translate biology into daily health solutions that people can use, trust, and afford. From functional water to plant-based metabolic formulations, the institute focuses on products that address some of Bangladesh's most urgent health challenges — including diabetes, hypertension, obesity, dyslipidemia, gut health, and healthy aging.
+
+The institute combines clinical research, formulation science, indigenous medicinal plant knowledge, nutritional biochemistry, and consumer health strategy to create products that are scientifically grounded and commercially scalable.
+
+Flagship programs include SuperWater, Aquanimity's clinically studied functional water platform; Nutraceutical formulations inspired by Bangladesh's indigenous biodiversity; and future products across digestion, cognitive health, cardiovascular wellness, and precision nutrition.`,
+      focusAreas: ["Functional beverages", "Metabolic health", "Nutraceuticals", "Phytopharmaceuticals", "Clinical nutrition", "Gut health", "Healthy aging", "Consumer biotech"],
+      img: "images/health3.jpg"
+    },
+    { 
+      n: "02", 
+      title: "Institute of Applied Bioengineering & Materials Science", 
+      blurb: "Engineering advanced biological materials, delivery systems, and next-generation healthcare technologies.", 
+      tag: "Bioengineering",
+      fullDescription: `The Institute of Applied Bioengineering & Materials Science engineers advanced biological materials, delivery systems, biomaterials, and next-generation healthcare technologies. Its mission is to solve difficult problems at the intersection of biology, materials science, medicine, and manufacturing. The institute works on technologies that can improve how vaccines, proteins, peptides, biologics, diagnostics, and biomaterials are designed, delivered, stabilized, and scaled.
+
+A core focus of the institute is Aquanimity's next-generation vaccine and biologics delivery platform. By exploring advanced nanoparticle-based delivery systems, the institute aims to improve antigen loading, immune presentation, thermostability, and accessibility for vaccines and biologics — especially in low- and middle-income health systems.
+
+Beyond drug delivery, the institute also explores Bangladesh-relevant biomaterials such as indigenous material medical materials, sustainable packaging systems, biosensor-enabled health products, and advanced materials for diagnostics and healthcare infrastructure.`,
+      focusAreas: ["Drug delivery", "Vaccine delivery", "Polymersomes", "Biomaterials", "Medical materials", "Biosensors", "Sustainable packaging", "Protein formulation", "Lyophilization", "Advanced healthcare engineering"],
+      img: "images/bio.jpg"
+    },
+    { 
+      n: "03", 
+      title: "Institute of Omics & Molecular Microbiology", 
+      blurb: "Discovering useful biology from Bangladesh's living systems — from mangroves to microbes.", 
+      tag: "Molecular Microbiology",
+      fullDescription: `The Institute of Omics & Molecular Microbiology discovers useful biology from Bangladesh's living systems — from marine ecosystems and mangroves to soils, plants, microbes, and the human microbiome. Its mission is to explore Bangladesh's under-studied biodiversity using genomics, microbiology, metabolomics, and molecular biology, then convert those discoveries into products and platforms for health, agriculture, climate resilience, and industrial biotechnology.
+
+The institute's flagship initiative investigates microbes from Bangladesh's unique ecological niches. These organisms may contain enzymes, metabolites, and pathways relevant to plastic degradation, bioremediation, biofertilizers, climate adaptation, and industrial biotechnology.
+
+The institute also supports human health programs by studying the microbiome's role in metabolism, inflammation, gut health, immunity, and disease risk. This creates a natural bridge between microbial discovery and Aquanimity's health science programs.
+
+Through this institute, Aquanimity treats Bangladesh's biodiversity not only as a natural heritage, but as a scientific and economic asset — a source of new enzymes, microbes, metabolites, diagnostics, and biological products.`,
+      focusAreas: ["Genomics", "Microbiology", "Microbiome science", "Microbial biotechnology", "Enzyme discovery", "Marine biology", "Climate biotech", "Biofertilizers", "Metabolomics", "Environmental biotechnology", "Metagenomics"],
+      img: "images/omics.jpg"
+    },
+    { 
+      n: "04", 
+      title: "Institute of Computational Biology & AI", 
+      blurb: "The intelligence layer of Aquanimity — using AI to accelerate discovery across all institutes.", 
+      tag: "Computational Biology",
+      fullDescription: `The Institute of Computational Biology & AI is the intelligence layer of Aquanimity BioHubs™. Its mission is to use artificial intelligence, bioinformatics, protein modeling, molecular simulation, and biological data systems to accelerate discovery across all Aquanimity institutes. It connects biodiversity, omics, clinical research, formulation science, and engineering into a unified AI-native discovery platform.
+
+The institute's flagship platform is The Aquanimity Bioplatform — an integrated computational biology engine designed to organize biological data, identify promising compounds and proteins, predict molecular interactions, prioritize experiments, and help transform raw scientific information into commercializable innovation.
+
+For health sciences, the institute can rank plant bioactives against targets involved in glucose metabolism, inflammation, cardiovascular health, and aging. For molecular microbiology, it can analyze microbial genomes to identify enzymes and metabolites with industrial or therapeutic potential. For bioengineering, it can support protein structure analysis, antigen selection, formulation design, and delivery-system optimization.`,
+      focusAreas: ["Computational biology", "AI drug discovery", "Protein modeling", "Bioinformatics", "Knowledge graphs", "Molecular docking", "ADME prediction", "Enzyme discovery", "Biological data platforms", "AI-native R&D systems"],
+      img: "images/com.jpg"
+    }
+  ],
+  team: {
+    "Leadership": [
+      { name: "Dr. Sarah Ahmed", title: "CEO & Founder", img: "https://randomuser.me/api/portraits/women/68.jpg" },
+      { name: "Dr. Michael Chen", title: "Chief Scientific Officer", img: "https://randomuser.me/api/portraits/men/32.jpg" },
+      { name: "Prof. David Williams", title: "Chair, Scientific Board", img: "https://randomuser.me/api/portraits/men/45.jpg" }
+    ],
+    "Research": [
+      { name: "Dr. Fatema Begum", title: "Lead, Health Sciences", img: "https://randomuser.me/api/portraits/women/23.jpg" },
+      { name: "Dr. Rajiv Kumar", title: "Lead, Bioengineering", img: "https://randomuser.me/api/portraits/men/67.jpg" },
+      { name: "Dr. Lisa Wong", title: "Lead, Computational Biology", img: "https://randomuser.me/api/portraits/women/56.jpg" }
+    ]
+  },
+  partners: [
+    { name: "University of Dhaka", kind: "Academic Partner", blurb: "Leading research collaboration on indigenous biodiversity and clinical studies.", loc: "Dhaka, BD", since: "2024", logo: "https://via.placeholder.com/120x80?text=DU" },
+    { name: "BRAC", kind: "Implementation Partner", blurb: "Field deployment and community health integration across Bangladesh.", loc: "Dhaka, BD", since: "2024", logo: "https://via.placeholder.com/120x80?text=BRAC" }
+  ],
+  phases: [
+    { n: "01", title: "Discover", body: "Genomics, microbiology, and biodiversity exploration to identify novel biological assets." },
+    { n: "02", title: "Design", body: "AI-powered protein design, formulation science, and engineering biology." },
+    { n: "03", title: "Build", body: "Prototyping, clinical validation, and manufacturing scale-up." },
+    { n: "04", title: "Launch", body: "Venture creation, market entry, and global distribution." }
+  ]
+};
+
 // Arrow icon component
 const Arrow = ({ size = 16 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,45 +117,139 @@ const useReveal = () => {
   return ref;
 };
 
-// Footer Component
-const DetailFooter = () => {
-  const currentYear = new Date().getFullYear();
+// Footer Component - Exact match to your design
+function Footer() {
+  const handleLinkClick = (e, item) => {
+    e.preventDefault();
+    const sectionMap = {
+      'Institutes': 'institutes',
+      'Ventures': 'ventures',
+      'Team': 'team',
+      'Careers': 'careers',
+      'News': 'contact',
+      'Contact': 'contact',
+      'Press kit': 'contact',
+      'LinkedIn': 'contact',
+      'X / Twitter': 'contact'
+    };
+    const sectionId = sectionMap[item] || item.toLowerCase();
+    const el = document.getElementById(sectionId);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
   
   return (
     <footer style={{ 
       marginTop: 80, 
       paddingTop: 48, 
       paddingBottom: 40, 
-      borderTop: '1px solid var(--rule)',
-      background: '#FAF7F0'
+      borderTop: '1px solid var(--rule)', 
+      background: '#FAF7F0',
+      fontFamily: "'Red Hat Display', sans-serif"
     }}>
       <div className="wrap" style={{ maxWidth: 1400, margin: "0 auto", padding: "0 32px" }}>
         <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr', gap: 32 }} className="ftr-grid">
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-              <div style={{
-                width: 40, height: 40, borderRadius: 12, background: 'rgba(31,110,122,0.1)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center'
-              }}>
-                <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
-                  <circle cx="16" cy="16" r="14.4" stroke="var(--accent)" strokeWidth="1.4" />
-                  <path d="M3.6 18.5 C 8 22, 13 22, 16 19 C 19 16, 24 16, 28.4 19" stroke="var(--accent)" strokeWidth="1.4" fill="none" />
-                  <circle cx="16" cy="11" r="1.6" fill="var(--accent)" />
-                </svg>
-              </div>
-              <div>
-                <div style={{ fontWeight: 800, letterSpacing: '0.02em', fontSize: 18, color: 'var(--ink)' }}>AQUANIMITY</div>
-                <div className="mono" style={{ fontSize: 9.5, letterSpacing: '0.22em', color: 'var(--accent)', marginTop: 2 }}>BIOHUBS™</div>
-              </div>
+              <img 
+                src={process.env.PUBLIC_URL + '/images/logo1.png'} 
+                alt="AQUANIMITY BIOHUBS™" 
+                style={{ 
+                  height: '40px', 
+                  width: 'auto',
+                  objectFit: 'contain'
+                }}
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
             </div>
-            <p style={{ fontSize: 14, color: 'var(--muted)', maxWidth: 320, lineHeight: 1.55 }}>
-              Engineering life. For humanity. The bioeconomy of the Bay of Bengal — designed, built, and shipped from Dhaka.
+            <p style={{ fontSize: 14, color: 'var(--muted)', maxWidth: 320, lineHeight: 1.55, fontFamily: "'Red Hat Display', sans-serif", fontWeight: 400 }}>
+              Engineering life. For humanity.
             </p>
           </div>
-          <FooterCol title="Platform" items={['Discover','Build','Test','Launch']} />
-          <FooterCol title="Company" items={['Institutes','Ventures','Team','Careers']} />
-          <FooterCol title="Connect" items={['Contact','LinkedIn','Twitter']} />
-          <FooterCol title="Studios" items={['Dhaka HQ','Singapore','Boston','London']} />
+          
+          <div>
+            <div className="label" style={{ marginBottom: 14, fontSize: 11, letterSpacing: '0.2em', color: 'var(--accent)', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 600 }}>
+              COMPANY
+            </div>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: 10 }}>
+              {['Institutes', 'Ventures', 'Team', 'Careers', 'News'].map((item, i) => (
+                <li key={i}>
+                  <button 
+                    onClick={(e) => handleLinkClick(e, item)}
+                    style={{ 
+                      fontSize: 14, 
+                      color: 'var(--ink-2)',
+                      background: 'none',
+                      border: 'none',
+                      cursor: 'pointer',
+                      padding: 0,
+                      fontFamily: "'Red Hat Display', sans-serif",
+                      fontWeight: 400,
+                      transition: 'color 0.2s ease'
+                    }} 
+                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--ink-2)'}
+                  >
+                    {item}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <div className="label" style={{ marginBottom: 14, fontSize: 11, letterSpacing: '0.2em', color: 'var(--accent)', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 600 }}>
+              CONNECT
+            </div>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: 10 }}>
+              {['Contact', 'Press kit', 'LinkedIn', 'X / Twitter'].map((item, i) => (
+                <li key={i}>
+                  <button 
+                    onClick={(e) => handleLinkClick(e, item)}
+                    style={{ 
+                      fontSize: 14, 
+                      color: 'var(--ink-2)',
+                      background: 'none',
+                      border: 'none',
+                      cursor: 'pointer',
+                      padding: 0,
+                      fontFamily: "'Red Hat Display', sans-serif",
+                      fontWeight: 400,
+                      transition: 'color 0.2s ease'
+                    }} 
+                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--ink-2)'}
+                  >
+                    {item}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <div className="label" style={{ marginBottom: 14, fontSize: 11, letterSpacing: '0.2em', color: 'var(--accent)', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 600 }}>
+              CONTACT
+            </div>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: 10 }}>
+              <li>
+                <span style={{ fontSize: 14, color: 'var(--ink-2)', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 400 }}>
+                  Address: Mirpur, Dhaka-1210
+                </span>
+              </li>
+              <li>
+                <span style={{ fontSize: 14, color: 'var(--ink-2)', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 400 }}>
+                  Phone: 0177777789
+                </span>
+              </li>
+              <li>
+                <span style={{ fontSize: 14, color: 'var(--ink-2)', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 400 }}>
+                  Email: aquanimity@gmail.com
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div style={{ 
@@ -81,14 +262,15 @@ const DetailFooter = () => {
           justifyContent: 'space-between', 
           alignItems: 'center' 
         }}>
-          <div className="mono" style={{ fontSize: 11, letterSpacing: '0.18em', color: 'var(--muted)' }}>
-            © {currentYear} AQUANIMITY. ALL RIGHTS RESERVED.
+          <div className="mono" style={{ fontSize: 11, letterSpacing: '0.18em', color: 'var(--muted)', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 500 }}>
+            © {new Date().getFullYear()} AQUANIMITY. ALL RIGHTS RESERVED.
           </div>
-          <div className="mono" style={{ fontSize: 11, letterSpacing: '0.18em', color: 'var(--muted)' }}>
-            23.78°N · 90.36°E · DHAKA, BD
+          <div className="mono" style={{ fontSize: 11, letterSpacing: '0.18em', color: 'var(--muted)', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 500 }}>
+            Mirpur, Rupnagar · DHAKA, BD
           </div>
         </div>
       </div>
+      
       <style>{`
         @media (max-width: 900px) {
           .ftr-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
@@ -99,26 +281,7 @@ const DetailFooter = () => {
       `}</style>
     </footer>
   );
-};
-
-const FooterCol = ({ title, items }) => {
-  return (
-    <div>
-      <div className="label" style={{ marginBottom: 14, fontSize: 11, letterSpacing: '0.2em', color: 'var(--accent)' }}>
-        {title}
-      </div>
-      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: 10 }}>
-        {items.map((i, x) => (
-          <li key={x}>
-            <span style={{ fontSize: 14, color: 'var(--ink-2)', transition: 'color 0.2s ease' }}>
-              {i}
-            </span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+}
 
 // Back Button Component
 const BackButton = ({ onClick }) => {
@@ -158,7 +321,7 @@ const BackButton = ({ onClick }) => {
             <path d="M19 12H5" />
             <path d="M12 19l-7-7 7-7" />
           </svg>
-          Back to Home
+          Back
         </button>
       </div>
     </div>
@@ -167,7 +330,7 @@ const BackButton = ({ onClick }) => {
 
 // Detail page used for venture / institute / list views
 function DetailPage({ route, onClose, palette }) {
-  const data = JSON.parse(document.getElementById('aquanimity-data').textContent);
+  const data = appData;
   const ref = useReveal();
 
   let view;
@@ -186,12 +349,10 @@ function DetailPage({ route, onClose, palette }) {
     }
   } else if (route === 'ventures-list') {
     view = <ListView title="Our Ventures" subtitle="Building category-defining ventures." items={data.ventures?.map(v => ({
-      n: v.n, title: v.name, blurb: v.blurb, img: v.img || "/images/Super_wat.png", tag: v.stage, href: 'venture:' + v.id
+      n: v.n, title: v.name, blurb: v.blurb, img: v.img, tag: v.stage, href: 'venture:' + v.id
     })) || []} kind="venture" palette={palette} />;
   } else if (route === 'institutes-list') {
-    view = <ListView title="Our Institutes" subtitle="Four specialized institutes. One mission — transform healthcare." items={data.institutes?.map(it => ({
-      n: it.n, title: it.title, blurb: it.blurb, tag: it.tag, href: 'institute:' + it.n
-    })) || []} kind="institute" palette={palette} />;
+    view = <InstitutesZigzagView institutes={data.institutes} palette={palette} />;
   } else if (route === 'team-list') {
     view = <TeamFull data={data} palette={palette} />;
   } else if (route === 'partners-list') {
@@ -210,7 +371,7 @@ function DetailPage({ route, onClose, palette }) {
       <div style={{ background: '#ECE5D6' }}>
         {view}
       </div>
-      <DetailFooter />
+      <Footer />
     </div>
   );
 }
@@ -237,26 +398,212 @@ function SlideIn({ from = 'left', delay = 0, children, style }) {
   );
 }
 
+// Professional Zigzag Institutes View
+function InstitutesZigzagView({ institutes, palette }) {
+  const handleInstituteClick = (href) => {
+    window.dispatchEvent(new CustomEvent('aq-route', { detail: href }));
+  };
+
+  const zigzagIntro = `Aquanimity BioHubs™ is built around four interdisciplinary institutes, each designed to transform frontier science into real-world bioinnovations. Together, they connect Bangladesh's biodiversity, clinical needs, engineering talent, and AI-native discovery systems into a platform for health, climate, and biological transformation.
+
+Each institute is not merely a research division. It is a venture-building engine — bringing together scientists, technologists, clinicians, universities, and strategic partners to discover, validate, engineer, and commercialize breakthrough solutions from Bangladesh for the world.`;
+
+  return (
+    <div className="wrap" style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px', paddingTop: 80, paddingBottom: 80 }}>
+      {/* Hero Section with Intro */}
+      <SlideIn from="left">
+        <div className="label" style={{ marginBottom: 18, fontSize: 11, letterSpacing: '0.2em', color: 'var(--accent)' }}>OUR INSTITUTES</div>
+      </SlideIn>
+      <SlideIn from="left" delay={0.08}>
+        <h1 style={{ fontSize: 'clamp(40px, 6vw, 84px)', lineHeight: 1, letterSpacing: '-0.025em', fontWeight: 800, fontFamily: "'Red Hat Display', sans-serif", marginBottom: 32 }}>
+          Four specialized institutes. <span className="serif" style={{ fontStyle: 'italic', color: 'var(--accent)', fontWeight: 400 }}>One mission</span> — transform biology.
+        </h1>
+      </SlideIn>
+      
+      <SlideIn from="left" delay={0.16}>
+        <div style={{ 
+          background: 'linear-gradient(135deg, var(--accent-soft) 0%, transparent 100%)',
+          padding: '40px 48px',
+          borderRadius: 24,
+          marginBottom: 80,
+          border: '1px solid var(--rule)'
+        }}>
+          <p style={{ fontSize: 18, lineHeight: 1.65, color: 'var(--ink-2)', marginBottom: 20, fontStyle: 'italic' }}>
+            {zigzagIntro.split('\n\n')[0]}
+          </p>
+          <p style={{ fontSize: 18, lineHeight: 1.65, color: 'var(--ink-2)' }}>
+            {zigzagIntro.split('\n\n')[1]}
+          </p>
+        </div>
+      </SlideIn>
+
+      {/* Zigzag Layout for Institutes */}
+      {institutes.map((institute, idx) => (
+        <SlideIn key={idx} from={idx % 2 === 0 ? 'left' : 'right'} delay={idx * 0.1}>
+          <div 
+            onClick={() => handleInstituteClick('institute:' + institute.n)}
+            style={{
+              display: 'grid',
+              gridTemplateColumns: idx % 2 === 0 ? '1fr 1.2fr' : '1.2fr 1fr',
+              gap: 48,
+              marginBottom: 80,
+              cursor: 'pointer',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-8px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+          >
+            {/* Image Section */}
+            <div style={{ 
+              order: idx % 2 === 0 ? 1 : 2,
+              borderRadius: 24,
+              overflow: 'hidden',
+              boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+              height: 400
+            }}>
+              <img 
+                src={institute.img} 
+                alt={institute.title}
+                style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  objectFit: 'cover',
+                  transition: 'transform 0.5s ease'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              />
+            </div>
+
+            {/* Content Section */}
+            <div style={{ 
+              order: idx % 2 === 0 ? 2 : 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center'
+            }}>
+              <div className="mono" style={{ fontSize: 11, letterSpacing: '0.22em', color: 'var(--accent)', marginBottom: 16 }}>
+                INSTITUTE {institute.n} · {institute.tag.toUpperCase()}
+              </div>
+              <h2 style={{ 
+                fontSize: 'clamp(28px, 3.5vw, 42px)', 
+                fontWeight: 800, 
+                fontFamily: "'Red Hat Display', sans-serif",
+                letterSpacing: '-0.02em',
+                marginBottom: 20,
+                color: 'var(--ink)'
+              }}>
+                {institute.title}
+              </h2>
+              <p style={{ fontSize: 17, lineHeight: 1.55, color: 'var(--ink-2)', marginBottom: 24 }}>
+                {institute.blurb}
+              </p>
+              
+              {/* Focus Areas Tags */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 24 }}>
+                {institute.focusAreas.slice(0, 4).map((area, i) => (
+                  <span key={i} style={{
+                    background: 'var(--accent-soft)',
+                    padding: '6px 14px',
+                    borderRadius: 20,
+                    fontSize: 12,
+                    fontWeight: 500,
+                    color: 'var(--accent)'
+                  }}>
+                    {area}
+                  </span>
+                ))}
+                {institute.focusAreas.length > 4 && (
+                  <span style={{
+                    background: 'var(--bone)',
+                    padding: '6px 14px',
+                    borderRadius: 20,
+                    fontSize: 12,
+                    fontWeight: 500,
+                    color: 'var(--muted)'
+                  }}>
+                    +{institute.focusAreas.length - 4} more
+                  </span>
+                )}
+              </div>
+
+              <button style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                background: 'transparent',
+                border: 'none',
+                color: 'var(--accent)',
+                fontWeight: 600,
+                fontSize: 14,
+                cursor: 'pointer',
+                padding: 0,
+                width: 'fit-content'
+              }}>
+                Explore Institute <Arrow size={14} />
+              </button>
+            </div>
+          </div>
+        </SlideIn>
+      ))}
+
+      {/* Bottom CTA */}
+      <SlideIn from="bottom">
+        <div style={{
+          textAlign: 'center',
+          marginTop: 40,
+          padding: 60,
+          background: 'linear-gradient(135deg, var(--accent) 0%, #1a5a66 100%)',
+          borderRadius: 32,
+          color: 'white'
+        }}>
+          <h3 style={{ fontSize: 'clamp(28px, 3vw, 36px)', fontWeight: 700, marginBottom: 16, fontFamily: "'Red Hat Display', sans-serif" }}>
+            One BioHub. Four Engines.
+          </h3>
+          <p style={{ fontSize: 17, maxWidth: 700, margin: '0 auto 24px', opacity: 0.9 }}>
+            Together, the four institutes form Aquanimity's BioHub operating system — turning biodiversity into biology, biology into engineering, engineering into products, and products into global impact.
+          </p>
+          <button 
+            onClick={() => window.dispatchEvent(new CustomEvent('aq-route', { detail: 'platform-detail' }))}
+            style={{
+              padding: '12px 32px',
+              background: 'white',
+              color: 'var(--accent)',
+              border: 'none',
+              borderRadius: 40,
+              fontSize: 14,
+              fontWeight: 600,
+              cursor: 'pointer'
+            }}
+          >
+            Discover the BioPlatform →
+          </button>
+        </div>
+      </SlideIn>
+    </div>
+  );
+}
+
 function VentureDetail({ v, data, palette }) {
-  // Venture-specific images for the card section
   const ventureCards = {
     "SuperWater": {
       mainImage: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=800&h=600&fit=crop",
-      techImage: "https://amplifiedperspectives.burnsmcd.com/hubfs/CORP_AmplifiedPerspectives/assets/Infrastructure/using-technology-to-manage-our-vital-water-resources-Patrick-Clifford-amplified-perspectives-burns-mcdonnell.jpg",
+      techImage: "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=800&h=600&fit=crop",
       teamImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop",
-      description: "Advanced bio-inspired filtration membranes removing arsenic and microplastics from water sources across Bangladesh."
     },
     "ThermoReVax": {
       mainImage: "https://images.unsplash.com/photo-1582719505981-e2f3d5a6b0b4?w=800&h=600&fit=crop",
       techImage: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?w=800&h=600&fit=crop",
       teamImage: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop",
-      description: "Thermostable vaccine technology eliminating cold chain requirements for last-mile delivery in tropical climates."
     },
     "Blue Microbiome": {
       mainImage: "https://images.unsplash.com/photo-1582967788606-a171c1080cb0?w=800&h=600&fit=crop",
       techImage: "https://images.unsplash.com/photo-1535591273668-578e3112cbf8?w=800&h=600&fit=crop",
       teamImage: "https://images.unsplash.com/photo-1577557159867-31facc1beea5?w=800&h=600&fit=crop",
-      description: "Probiotic solutions for sustainable shrimp farming, reducing disease outbreaks and improving yields."
     }
   };
 
@@ -264,14 +611,12 @@ function VentureDetail({ v, data, palette }) {
     mainImage: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&h=600&fit=crop",
     techImage: "https://images.unsplash.com/photo-1576081149789-84f3c7efcbee?w=800&h=600&fit=crop",
     teamImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop",
-    description: "Innovative biotechnology solutions for global health and environmental challenges."
   };
 
   const [hoveredCard, setHoveredCard] = useState(null);
 
   return (
     <div>
-      {/* Hero Section */}
       <div className="img-frame" style={{ height: 'min(70vh, 700px)', background: '#000', position: 'relative' }}>
         <img src={v.img || cardImages.mainImage} alt={v.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(14,27,44,0.2), rgba(14,27,44,0.85))' }} />
@@ -282,7 +627,7 @@ function VentureDetail({ v, data, palette }) {
             </div>
           </SlideIn>
           <SlideIn from="left" delay={0.1}>
-            <h1 style={{ color: 'var(--paper)', fontSize: 'clamp(56px, 9vw, 130px)', lineHeight: 0.92, fontWeight: 500, letterSpacing: '-0.025em' }}>
+            <h1 style={{ color: 'var(--paper)', fontSize: 'clamp(56px, 9vw, 130px)', lineHeight: 0.92, fontWeight: 800, letterSpacing: '-0.025em', fontFamily: "'Red Hat Display', sans-serif" }}>
               {v.name}
             </h1>
           </SlideIn>
@@ -294,9 +639,7 @@ function VentureDetail({ v, data, palette }) {
         </div>
       </div>
 
-      {/* Main Content with Cards */}
       <div className="wrap" style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px', paddingTop: 80, paddingBottom: 80 }}>
-        {/* Venture Brief and Description */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: 64, marginBottom: 80 }}>
           <SlideIn from="left">
             <div className="label" style={{ fontSize: 11, letterSpacing: '0.2em', color: 'var(--accent)' }}>VENTURE BRIEF</div>
@@ -319,7 +662,6 @@ function VentureDetail({ v, data, palette }) {
           </SlideIn>
         </div>
 
-        {/* Cards Section - 3 Professional Cards */}
         <div style={{ marginTop: 40 }}>
           <SlideIn from="left">
             <div style={{ textAlign: 'center', marginBottom: 48 }}>
@@ -331,7 +673,6 @@ function VentureDetail({ v, data, palette }) {
           </SlideIn>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
-            {/* Card 1 - Technology */}
             <SlideIn from="bottom" delay={0.1}>
               <div 
                 onMouseEnter={() => setHoveredCard('tech')}
@@ -347,33 +688,16 @@ function VentureDetail({ v, data, palette }) {
                 }}
               >
                 <div className="img-frame" style={{ height: 220, overflow: 'hidden' }}>
-                  <img 
-                    src={cardImages.techImage} 
-                    alt={`${v.name} Technology`} 
-                    style={{ 
-                      width: '100%', 
-                      height: '100%', 
-                      objectFit: 'cover',
-                      transition: 'transform 0.4s ease',
-                      transform: hoveredCard === 'tech' ? 'scale(1.05)' : 'scale(1)'
-                    }} 
-                  />
+                  <img src={cardImages.techImage} alt={`${v.name} Technology`} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease', transform: hoveredCard === 'tech' ? 'scale(1.05)' : 'scale(1)' }} />
                 </div>
                 <div style={{ padding: 24 }}>
                   <div className="label" style={{ marginBottom: 12, color: 'var(--accent)' }}>TECHNOLOGY</div>
-                  <h4 style={{ fontSize: 20, fontWeight: 600, marginBottom: 12, letterSpacing: '-0.01em' }}>
-                    Advanced Platform
-                  </h4>
-                  <p style={{ fontSize: 14, lineHeight: 1.55, color: 'var(--ink-2)' }}>
-                    {v.name === 'SuperWater' ? 'Bio-inspired filtration membranes using aquaporin proteins for molecular-level water purification.' :
-                     v.name === 'ThermoReVax' ? 'Lipid nanoparticle formulation with proprietary thermostabilization technology.' :
-                     'Next-generation probiotic formulations with targeted delivery for aquaculture applications.'}
-                  </p>
+                  <h4 style={{ fontSize: 20, fontWeight: 600, marginBottom: 12, letterSpacing: '-0.01em' }}>Advanced Platform</h4>
+                  <p style={{ fontSize: 14, lineHeight: 1.55, color: 'var(--ink-2)' }}>Cutting-edge biotech solutions developed at Aquanimity's labs.</p>
                 </div>
               </div>
             </SlideIn>
 
-            {/* Card 2 - Impact */}
             <SlideIn from="bottom" delay={0.2}>
               <div 
                 onMouseEnter={() => setHoveredCard('impact')}
@@ -389,33 +713,16 @@ function VentureDetail({ v, data, palette }) {
                 }}
               >
                 <div className="img-frame" style={{ height: 220, overflow: 'hidden' }}>
-                  <img 
-                    src={cardImages.mainImage} 
-                    alt={`${v.name} Impact`} 
-                    style={{ 
-                      width: '100%', 
-                      height: '100%', 
-                      objectFit: 'cover',
-                      transition: 'transform 0.4s ease',
-                      transform: hoveredCard === 'impact' ? 'scale(1.05)' : 'scale(1)'
-                    }} 
-                  />
+                  <img src={cardImages.mainImage} alt={`${v.name} Impact`} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease', transform: hoveredCard === 'impact' ? 'scale(1.05)' : 'scale(1)' }} />
                 </div>
                 <div style={{ padding: 24 }}>
                   <div className="label" style={{ marginBottom: 12, color: 'var(--accent)' }}>IMPACT</div>
-                  <h4 style={{ fontSize: 20, fontWeight: 600, marginBottom: 12, letterSpacing: '-0.01em' }}>
-                    Measurable Change
-                  </h4>
-                  <p style={{ fontSize: 14, lineHeight: 1.55, color: 'var(--ink-2)' }}>
-                    {v.name === 'SuperWater' ? '150K+ people with clean water access. 50+ community filtration systems installed.' :
-                     v.name === 'ThermoReVax' ? 'Reaching 2M+ underserved patients. Eliminating cold chain in 12 districts.' :
-                     '40% disease reduction in pilot farms. 500+ farmers trained in sustainable practices.'}
-                  </p>
+                  <h4 style={{ fontSize: 20, fontWeight: 600, marginBottom: 12, letterSpacing: '-0.01em' }}>Measurable Change</h4>
+                  <p style={{ fontSize: 14, lineHeight: 1.55, color: 'var(--ink-2)' }}>Transforming lives across Bangladesh and beyond.</p>
                 </div>
               </div>
             </SlideIn>
 
-            {/* Card 3 - Team */}
             <SlideIn from="bottom" delay={0.3}>
               <div 
                 onMouseEnter={() => setHoveredCard('team')}
@@ -431,34 +738,18 @@ function VentureDetail({ v, data, palette }) {
                 }}
               >
                 <div className="img-frame" style={{ height: 220, overflow: 'hidden' }}>
-                  <img 
-                    src={cardImages.teamImage} 
-                    alt={`${v.name} Team`} 
-                    style={{ 
-                      width: '100%', 
-                      height: '100%', 
-                      objectFit: 'cover',
-                      transition: 'transform 0.4s ease',
-                      transform: hoveredCard === 'team' ? 'scale(1.05)' : 'scale(1)'
-                    }} 
-                  />
+                  <img src={cardImages.teamImage} alt={`${v.name} Team`} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease', transform: hoveredCard === 'team' ? 'scale(1.05)' : 'scale(1)' }} />
                 </div>
                 <div style={{ padding: 24 }}>
                   <div className="label" style={{ marginBottom: 12, color: 'var(--accent)' }}>TEAM</div>
-                  <h4 style={{ fontSize: 20, fontWeight: 600, marginBottom: 12, letterSpacing: '-0.01em' }}>
-                    World-Class Talent
-                  </h4>
-                  <p style={{ fontSize: 14, lineHeight: 1.55, color: 'var(--ink-2)' }}>
-                    12+ researchers and engineers. PhDs from MIT, Stanford, and Dhaka University. 
-                    Industry veterans with 50+ years combined experience.
-                  </p>
+                  <h4 style={{ fontSize: 20, fontWeight: 600, marginBottom: 12, letterSpacing: '-0.01em' }}>World-Class Talent</h4>
+                  <p style={{ fontSize: 14, lineHeight: 1.55, color: 'var(--ink-2)' }}>Leading scientists and engineers from around the world.</p>
                 </div>
               </div>
             </SlideIn>
           </div>
         </div>
 
-        {/* Milestones Section */}
         <div style={{ marginTop: 80, background: 'var(--accent-soft)', borderRadius: 20, padding: 48 }}>
           <SlideIn from="bottom">
             <div style={{ textAlign: 'center', marginBottom: 40 }}>
@@ -488,55 +779,8 @@ function VentureDetail({ v, data, palette }) {
 }
 
 function InstituteDetail({ it, data, palette }) {
-  // Updated institute images for the 4 new institutes
-  const instituteImages = {
-    "Institute of Health Science": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=600&fit=crop",
-    "Institute of Applied Bioengineering & Material Science": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1200&h=600&fit=crop",
-    "Institute of Computational Biology & Data Science": "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=1200&h=600&fit=crop",
-    "Institute of Molecular Biology & Omics": "https://images.unsplash.com/photo-1582719505981-e2f3d5a6b0b4?w=1200&h=600&fit=crop"
-  };
-
-  const instituteIcon = instituteImages[it.title] || "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1200&h=600&fit=crop";
-
-  // Research areas based on the new institutes
-  const researchAreas = {
-    "Institute of Health Science": [
-      "Clinical Research & Translational Medicine",
-      "Drug Discovery & Development",
-      "Personalized Medicine & Genomics",
-      "Global Health Initiatives",
-      "Infectious Disease Research"
-    ],
-    "Institute of Applied Bioengineering & Material Science": [
-      "Tissue Engineering & Regenerative Medicine",
-      "Smart Biomaterials Development",
-      "3D Bioprinting Technologies",
-      "Bio-manufacturing Processes",
-      "Implantable Medical Devices"
-    ],
-    "Institute of Computational Biology & Data Science": [
-      "AI & Machine Learning in Biology",
-      "Genomic Data Analysis",
-      "Protein Structure Prediction",
-      "Systems Biology Modeling",
-      "Bioinformatics Pipeline Development"
-    ],
-    "Institute of Molecular Biology & Omics": [
-      "Genomics & Epigenomics",
-      "Proteomics & Metabolomics",
-      "Single Cell Analysis Technologies",
-      "Molecular Diagnostics",
-      "Multi-omics Integration"
-    ]
-  };
-
-  const areas = researchAreas[it.title] || [
-    "Advanced biomedical research",
-    "Cutting-edge molecular technologies",
-    "Interdisciplinary scientific collaboration",
-    "Translational research programs",
-    "Innovative therapeutic solutions"
-  ];
+  const descriptionParagraphs = it.fullDescription ? it.fullDescription.split('\n\n').filter(p => p.trim().length > 0) : [it.blurb];
+  const areas = it.focusAreas || ["Advanced biomedical research", "Cutting-edge molecular technologies", "Interdisciplinary scientific collaboration"];
 
   const stats = [
     { label: "RESEARCHERS", value: "45+" },
@@ -547,9 +791,8 @@ function InstituteDetail({ it, data, palette }) {
 
   return (
     <div>
-      {/* Hero Section */}
       <div className="img-frame" style={{ height: 'min(55vh, 480px)', background: '#000', position: 'relative' }}>
-        <img src={instituteIcon} alt={it.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        <img src={it.img} alt={it.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(14,27,44,0.3), rgba(14,27,44,0.85))' }} />
         <div className="wrap" style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', paddingBottom: 50, maxWidth: 1400, margin: '0 auto', padding: '0 32px' }}>
           <SlideIn from="left">
@@ -558,7 +801,7 @@ function InstituteDetail({ it, data, palette }) {
             </div>
           </SlideIn>
           <SlideIn from="left" delay={0.1}>
-            <h1 style={{ color: 'var(--paper)', fontSize: 'clamp(40px, 5.5vw, 72px)', lineHeight: 1, fontWeight: 600, letterSpacing: '-0.025em', maxWidth: 900 }}>
+            <h1 style={{ color: 'var(--paper)', fontSize: 'clamp(40px, 5.5vw, 72px)', lineHeight: 1, fontWeight: 800, letterSpacing: '-0.025em', maxWidth: 900, fontFamily: "'Red Hat Display', sans-serif" }}>
               {it.title}
             </h1>
           </SlideIn>
@@ -570,14 +813,13 @@ function InstituteDetail({ it, data, palette }) {
         </div>
       </div>
 
-      {/* Stats Bar */}
       <div style={{ background: 'var(--accent)', padding: '36px 0' }}>
         <div className="wrap" style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 32, textAlign: 'center' }}>
             {stats.map((stat, idx) => (
               <SlideIn key={idx} from="bottom" delay={idx * 0.1}>
                 <div>
-                  <div style={{ fontSize: 32, fontWeight: 700, color: 'white', fontFamily: 'serif', fontStyle: 'italic' }}>{stat.value}</div>
+                  <div style={{ fontSize: 32, fontWeight: 700, color: 'white', fontFamily: "'Red Hat Display', sans-serif", fontStyle: 'italic' }}>{stat.value}</div>
                   <div className="mono" style={{ fontSize: 10, letterSpacing: '0.2em', color: 'rgba(255,255,255,0.7)', marginTop: 6 }}>{stat.label}</div>
                 </div>
               </SlideIn>
@@ -586,15 +828,14 @@ function InstituteDetail({ it, data, palette }) {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="wrap" style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px', paddingTop: 70, paddingBottom: 70 }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.1fr', gap: 56, marginBottom: 70 }}>
           <SlideIn from="left">
             <h2 style={{ fontSize: 'clamp(26px, 3.2vw, 38px)', fontWeight: 500, lineHeight: 1.15, marginBottom: 24 }}>
-              <span className="serif" style={{ fontStyle: 'italic', color: 'var(--accent)', fontWeight: 400 }}>Research</span> Areas
+              <span className="serif" style={{ fontStyle: 'italic', color: 'var(--accent)', fontWeight: 400 }}>Focus</span> Areas
             </h2>
             <div style={{ display: 'grid', gap: 14 }}>
-              {areas.slice(0, 5).map((area, idx) => (
+              {areas.slice(0, 8).map((area, idx) => (
                 <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 0', borderBottom: '1px solid var(--rule)' }}>
                   <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)' }} />
                   <span style={{ fontSize: 14.5, color: 'var(--ink-2)' }}>{area}</span>
@@ -607,15 +848,11 @@ function InstituteDetail({ it, data, palette }) {
             <h2 style={{ fontSize: 'clamp(26px, 3.2vw, 38px)', fontWeight: 500, lineHeight: 1.15, marginBottom: 24 }}>
               About the <span className="serif" style={{ fontStyle: 'italic', color: 'var(--accent)', fontWeight: 400 }}>Institute</span>
             </h2>
-            <p style={{ fontSize: 15.5, lineHeight: 1.6, color: 'var(--ink-2)', marginBottom: 18 }}>
-              The {it.title} is one of four interconnected institutes that make up the Aquanimity BioPlatform. 
-              Each institute is led by an independent scientific board with world-class researchers from leading 
-              institutions across the globe.
-            </p>
-            <p style={{ fontSize: 15.5, lineHeight: 1.6, color: 'var(--ink-2)', marginBottom: 18 }}>
-              Our researchers share infrastructure, capital, and talent across the network — compressing the time 
-              from a question in the lab to a product in the field.
-            </p>
+            {descriptionParagraphs.map((paragraph, idx) => (
+              <p key={idx} style={{ fontSize: 15.5, lineHeight: 1.6, color: 'var(--ink-2)', marginBottom: 18 }}>
+                {paragraph}
+              </p>
+            ))}
             <div style={{ background: 'var(--bone)', padding: 22, borderRadius: 16, marginTop: 20 }}>
               <div className="label" style={{ marginBottom: 12, color: 'var(--accent)' }}>KEY INITIATIVES</div>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
@@ -628,7 +865,6 @@ function InstituteDetail({ it, data, palette }) {
           </SlideIn>
         </div>
 
-        {/* Featured Researchers */}
         <div style={{ marginTop: 40 }}>
           <SlideIn from="left">
             <div style={{ textAlign: 'center', marginBottom: 40 }}>
@@ -657,7 +893,6 @@ function InstituteDetail({ it, data, palette }) {
           </div>
         </div>
 
-        {/* Contact CTA */}
         <div style={{ marginTop: 70, background: 'var(--bone)', borderRadius: 20, padding: 40, textAlign: 'center' }}>
           <SlideIn from="bottom">
             <h4 style={{ fontSize: 24, fontWeight: 500, marginBottom: 14 }}>
@@ -703,7 +938,7 @@ function ListView({ title, subtitle, items, kind, palette }) {
         <div className="label" style={{ marginBottom: 18, fontSize: 11, letterSpacing: '0.2em', color: 'var(--accent)' }}>ALL {title.toUpperCase()}</div>
       </SlideIn>
       <SlideIn from="left" delay={0.08}>
-        <h1 style={{ fontSize: 'clamp(40px, 6vw, 84px)', lineHeight: 1, letterSpacing: '-0.025em', fontWeight: 600 }}>
+        <h1 style={{ fontSize: 'clamp(40px, 6vw, 84px)', lineHeight: 1, letterSpacing: '-0.025em', fontWeight: 800, fontFamily: "'Red Hat Display', sans-serif" }}>
           {title}
         </h1>
       </SlideIn>
@@ -726,21 +961,7 @@ function ListView({ title, subtitle, items, kind, palette }) {
                   </div>
                 </div>
               </button>
-            ) : (
-              <button onClick={(e) => handleItemClick(e, i.href)} style={{
-                display: 'grid', gridTemplateColumns: '64px 200px 1fr 40px',
-                alignItems: 'center', gap: 24, padding: '32px 0', borderBottom: '1px solid var(--rule)',
-                width: '100%', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left'
-              }}>
-                <span className="mono" style={{ fontSize: 12, letterSpacing: '0.22em', color: 'var(--muted)' }}>{i.n}</span>
-                <span className="label" style={{ fontSize: 11, letterSpacing: '0.2em', color: 'var(--accent)' }}>{i.tag}</span>
-                <div>
-                  <div style={{ fontSize: 'clamp(22px, 2.4vw, 30px)', fontWeight: 500, letterSpacing: '-0.015em' }}>{i.title}</div>
-                  <div style={{ fontSize: 14.5, color: 'var(--ink-2)', marginTop: 8, maxWidth: 720 }}>{i.blurb}</div>
-                </div>
-                <Arrow />
-              </button>
-            )}
+            ) : null}
           </SlideIn>
         ))}
       </div>
@@ -755,7 +976,7 @@ function TeamFull({ data, palette }) {
         <div className="label" style={{ marginBottom: 18, fontSize: 11, letterSpacing: '0.2em', color: 'var(--accent)' }}>THE FULL TEAM</div>
       </SlideIn>
       <SlideIn from="left" delay={0.08}>
-        <h1 style={{ fontSize: 'clamp(40px, 6vw, 84px)', lineHeight: 1, letterSpacing: '-0.025em', fontWeight: 600 }}>
+        <h1 style={{ fontSize: 'clamp(40px, 6vw, 84px)', lineHeight: 1, letterSpacing: '-0.025em', fontWeight: 800, fontFamily: "'Red Hat Display', sans-serif" }}>
           Builders. Scientists. <span className="serif" style={{ fontStyle: 'italic', color: 'var(--accent)', fontWeight: 400 }}>Dreamers.</span> Doers.
         </h1>
       </SlideIn>
@@ -792,7 +1013,7 @@ function PartnersFull({ data, palette }) {
     <div className="wrap" style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px', paddingTop: 80, paddingBottom: 80 }}>
       <SlideIn from="left"><div className="label" style={{ marginBottom: 18, fontSize: 11, letterSpacing: '0.2em', color: 'var(--accent)' }}>ALL PARTNERS</div></SlideIn>
       <SlideIn from="left" delay={0.08}>
-        <h1 style={{ fontSize: 'clamp(40px, 6vw, 84px)', lineHeight: 1, letterSpacing: '-0.025em', fontWeight: 600 }}>
+        <h1 style={{ fontSize: 'clamp(40px, 6vw, 84px)', lineHeight: 1, letterSpacing: '-0.025em', fontWeight: 800, fontFamily: "'Red Hat Display', sans-serif" }}>
           Backed by the institutions <span className="serif" style={{ fontStyle: 'italic', color: 'var(--accent)', fontWeight: 400 }}>building</span> the future.
         </h1>
       </SlideIn>
@@ -838,7 +1059,7 @@ function CareersView({ palette }) {
     <div className="wrap" style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px', paddingTop: 80, paddingBottom: 80 }}>
       <SlideIn from="left"><div className="label" style={{ marginBottom: 18, fontSize: 11, letterSpacing: '0.2em', color: 'var(--accent)' }}>OPEN ROLES</div></SlideIn>
       <SlideIn from="left" delay={0.08}>
-        <h1 style={{ fontSize: 'clamp(40px, 6vw, 84px)', lineHeight: 1, letterSpacing: '-0.025em', fontWeight: 600 }}>
+        <h1 style={{ fontSize: 'clamp(40px, 6vw, 84px)', lineHeight: 1, letterSpacing: '-0.025em', fontWeight: 800, fontFamily: "'Red Hat Display', sans-serif" }}>
           Help build the <span className="serif" style={{ fontStyle: 'italic', color: 'var(--accent)', fontWeight: 400 }}>bioeconomy.</span>
         </h1>
       </SlideIn>
@@ -867,7 +1088,7 @@ function PlatformDetail({ data, palette }) {
     <div className="wrap" style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px', paddingTop: 80, paddingBottom: 80 }}>
       <SlideIn from="left"><div className="label" style={{ marginBottom: 18, fontSize: 11, letterSpacing: '0.2em', color: 'var(--accent)' }}>THE BIOPLATFORM</div></SlideIn>
       <SlideIn from="left" delay={0.08}>
-        <h1 style={{ fontSize: 'clamp(40px, 6vw, 84px)', lineHeight: 1, letterSpacing: '-0.025em', fontWeight: 600 }}>
+        <h1 style={{ fontSize: 'clamp(40px, 6vw, 84px)', lineHeight: 1, letterSpacing: '-0.025em', fontWeight: 800, fontFamily: "'Red Hat Display', sans-serif" }}>
           A full-stack <span className="serif" style={{ fontStyle: 'italic', color: 'var(--accent)', fontWeight: 400 }}>bioeconomy</span> engine.
         </h1>
       </SlideIn>

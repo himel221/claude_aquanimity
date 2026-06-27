@@ -163,7 +163,6 @@ function Nav({ onNavigate, route }) {
 
         .logo-img {
           width: 240px;
-          height: 240px;
           object-fit: contain;
           display: block;
         }
