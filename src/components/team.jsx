@@ -499,63 +499,54 @@ function Team({ palette, onOpen }) {
       "Others": [
         {
           "name": "Fatin Noor",
-          "title": "Biochemist",
+          "title": "Biochemist\n Executive Operations and Supply Chain",
           "img": "images/fatin.jpg",
           "linkedin": "https://linkedin.com",
-          "bio": "Expert on Biochemistry ",
+          "bio": "",
           "detailedBio": "Samir Hossainy is a <strong> researcher at the University of Chicago</strong>  and<strong>  co-developer of thermoreversible polymersomes</strong>  that self-assemble in water, enabling high-efficiency loading of proteins and siRNA for drug and vaccine delivery. He is currently a<strong>  Postdoctoral Associate at NYU Tandon</strong>  and holds a PhD in<strong>  Molecular Engineering  from the University of Chicago</strong>, along with<strong> MS and BS degrees in Materials Science and Bioengineering from UC Berkeley</strong>.\n\nAt the Biohub, he leads the thermoreversible polymersome platform, advancing applications in vaccines, cancer immunotherapy, and tolerogenic therapies. He guides scale-up and translational engineering in close collaboration with Shoeb Ahmed, PhD, ensuring the platform moves toward clinically relevant deployment.",
           "achievement": "Co-developer of thermoreversible polymersomes | PhD from University of Chicago | Postdoc at NYU Tandon",
           "education": "Ph.D. | University of Chicago"
         },
         {
           "name": "Mehadi Hasan Pritom",
-          "title": "Microbiologist",
+          "title": "Senior Microbiologist",
           "img": "images/rif.png",
           "linkedin": "https://linkedin.com",
-          "bio": "Expert on Microbiology",
+          "bio": "",
           "detailedBio": "Rifa Punnota is pursuing a PhD in Computational Neuroscience at the University of Oxford, with expertise spanning neurophysiology, neurobiology, neuropharmacology, and neurodegeneration. She holds an MSc in Translational Neuroscience from Imperial College London and a BSc in Pharmacology from University College London.\n\nAt the Biohub, she leads translational neuro-psychiatric research, focusing on computational models of depression and mental health. She collaborates closely with Systems Medicine and AI and Data Science institutes to develop precision mental-health therapeutics",
           "achievement": "PhD candidate at University of Oxford | MSc from Imperial College London | Leading neuro-psychiatric research",
           "education": "Ph.D. | University of Oxford"
         },
         {
           "name": "Mayad Mashnoon",
-          "title": "AI Engineer",
+          "title": "AI/ML Engineer",
           "img": "images/mashnoon.png",
           "linkedin": "https://linkedin.com",
-          "bio": "Expert on AI Engineering",
+          "bio": "",
           "detailedBio": "Tasnim Mostafa is a Director of Meghna Group of Industries (MGI), one of Bangladesh's largest conglomerates employing more than 60,000 people, and the founder of the leading sanitary napkin brand Anonna. She is deeply engaged in women's health and corporate social responsibility, and has championed inclusive employment and supportive social environments for people with Down syndrome.\n\nAt the Biohub, she drives partnerships with industry and civil society for women's health products, including biosensor sanitary pads and reproductive health interventions. She ensures market access, policy advocacy, and corporate engagement across the Women's Health Innovation program.",
           "achievement": "Founder of Anonna | Director at MGI (60,000+ employees) | Women's health advocate",
           "education": "MSc Management | Imperial College London and LLB | Queen Mary University of London"
         },
         {
-          "name": "Vaskur Kanti Roy ",
-          "title": "Research Associate-Nutraceuticals",
+          "name": "Rahul Baroi ",
+          "title": "Research Associate-Nutraceuticals and Vaccine",
           "img": "images/vaskor.jpeg",
           "linkedin": "https://linkedin.com",
-          "bio": "Expert on Nutraceuticals",
+          "bio": "",
           "detailedBio": "Oyishee Ahmad is a PhD researcher in the TRACER consortium at Sanquin Research and the University of Amsterdam, where she works on directing stem cells into fully functioning adult blood cells. She uses donor blood to generate induced pluripotent stem cells (iPSCs) and studies developmental processes to scale up lab-made blood production.\n\nAt the Biohub, she bridges the Applied Bioengineering and Genomics/Microbiomics Institutes. She develops iPSC-derived blood cells, organoids, and regenerative platforms, and collaborates closely with computational teams on development and modelling.",
           "achievement": "PhD researcher at University of Amsterdam | iPSC and stem cell differentiation expert",
           "education": "Ph.D. | University of Amsterdam"
         },{
-          "name": "Fatin Noor",
-          "title": "Biochemist",
+          "name": "Borno Das",
+          "title": "Research Associate-Nutraceuticals and Vaccine",
           "img": "images/fatin.jpg",
           "linkedin": "https://linkedin.com",
-          "bio": "Expert on Biochemistry ",
-          "detailedBio": "Samir Hossainy is a <strong> researcher at the University of Chicago</strong>  and<strong>  co-developer of thermoreversible polymersomes</strong>  that self-assemble in water, enabling high-efficiency loading of proteins and siRNA for drug and vaccine delivery. He is currently a<strong>  Postdoctoral Associate at NYU Tandon</strong>  and holds a PhD in<strong>  Molecular Engineering  from the University of Chicago</strong>, along with<strong> MS and BS degrees in Materials Science and Bioengineering from UC Berkeley</strong>.\n\nAt the Biohub, he leads the thermoreversible polymersome platform, advancing applications in vaccines, cancer immunotherapy, and tolerogenic therapies. He guides scale-up and translational engineering in close collaboration with Shoeb Ahmed, PhD, ensuring the platform moves toward clinically relevant deployment.",
-          "achievement": "Co-developer of thermoreversible polymersomes | PhD from University of Chicago | Postdoc at NYU Tandon",
-          "education": "Ph.D. | University of Chicago"
-        },
-        {
-          "name": "Fatin Noor",
-          "title": "Biochemist",
-          "img": "images/fatin.jpg",
-          "linkedin": "https://linkedin.com",
-          "bio": "Expert on Biochemistry ",
+          "bio": " ",
           "detailedBio": "Samir Hossainy is a <strong> researcher at the University of Chicago</strong>  and<strong>  co-developer of thermoreversible polymersomes</strong>  that self-assemble in water, enabling high-efficiency loading of proteins and siRNA for drug and vaccine delivery. He is currently a<strong>  Postdoctoral Associate at NYU Tandon</strong>  and holds a PhD in<strong>  Molecular Engineering  from the University of Chicago</strong>, along with<strong> MS and BS degrees in Materials Science and Bioengineering from UC Berkeley</strong>.\n\nAt the Biohub, he leads the thermoreversible polymersome platform, advancing applications in vaccines, cancer immunotherapy, and tolerogenic therapies. He guides scale-up and translational engineering in close collaboration with Shoeb Ahmed, PhD, ensuring the platform moves toward clinically relevant deployment.",
           "achievement": "Co-developer of thermoreversible polymersomes | PhD from University of Chicago | Postdoc at NYU Tandon",
           "education": "Ph.D. | University of Chicago"
         }
+
       ]
     };
   }
