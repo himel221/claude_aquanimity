@@ -28,7 +28,7 @@ function Partners({ palette, onOpen }) {
     { name: "Applied Bioengineering Research Incubator, BUET", short: "ABRI", kind: "Research Partner", logo: "/images/ibr.png", website: "https://www.facebook.com/ABRI.BUET/" },
     { name: "IQ Consult GmbH", short: "IQC", kind: "Implementation Partner", logo: "/images/iqc.png", website: "https://iqc.org.bd" },
     { name: "National Heart Foundation of Bangladesh", short: "Heart Foundation Bangladesh", kind: "Academic Partner", logo: "/images/heart.png", website: "https://www.nhf.org.bd/" },
-    { name: "Diabetics Association of Bangladesh", short: "Diabetics Association of Bangladesh", kind: "Academic Partner", logo: "/images/dia.png", website: "https://www.dab-bd.org/" },
+    { name: "Diabetic Association of Bangladesh", short: "Diabetic Association of Bangladesh", kind: "Academic Partner", logo: "/images/dia.png", website: "https://www.dab-bd.org/" },
     { name: "Centre for Global Health Research, BADAS", short: "Centre for Global Health Research", kind: "Academic Partner", logo: "/images/cghr.png", website: "https://cghr-badas.org/" },
     { name: "Department of Bioengineering, UC Berkeley", short: "BioEngineering", kind: "Academic Partner", logo: "/images/bio.png", website: "https://bioeng.berkeley.edu/" },
     { name: "University of Dhaka", short: "Dhaka University", kind: "Academic Partner", logo: "/images/du.png", website: "https://www.du.ac.bd/" }
