@@ -662,6 +662,7 @@ Each institute is not merely a research division. It is a venture-building engin
 }
 
 // ===== INSTITUTE DETAIL - FIXED VERSION =====
+// ===== INSTITUTE DETAIL - FIXED VERSION =====
 function InstituteDetail({ it, data, palette }) {
   const descriptionParagraphs = it.fullDescription ? it.fullDescription.split('\n\n').filter(p => p.trim().length > 0) : [it.blurb];
   const areas = it.focusAreas || ["Advanced biomedical research", "Cutting-edge molecular technologies", "Interdisciplinary scientific collaboration"];
@@ -673,7 +674,7 @@ function InstituteDetail({ it, data, palette }) {
       { 
         name: "Syed Hossainy, PhD", 
         title: "Founding Scientist and Chair,\nScience Advisory Board\n\n Director of Applied Bioengineering, UC Berkeley", 
-        img: "/images/sayed.png",
+        img: "/images/hossainy.png",
         bio: "Prolific inventor with 286 issued patents and 390 patents pending",
         detailedBio: "Syed Hossainy is an Adjunct Professor and Director of Applied Bioengineering at UC Berkeley and Advisor to the BUET Applied Bioengineering Research Incubator. He previously led Abbott Vascular's innovation incubator, delivering 10 feasibility programs, including bio absorbable vascular scaffolds. With 286 issued patents and nearly 390 pending, he is widely recognized as the co-inventor of the first Drug Eluting Stents.\n\nAt the Biohub, he sets the scientific direction, guides all translational R&D, and mentors teams on research innovation, biomaterials, bioengineering design, and regulatory strategy.",
         achievement: "Co-inventor of the first Drug Eluting Stents | Holder of 286 issued patents and nearly 390 pending patents",
@@ -699,7 +700,7 @@ function InstituteDetail({ it, data, palette }) {
       { 
         name: "Professor Dr. Bishwajit Bhowmick, PhD", 
         title: "Research Director", 
-        img: "/images/bishwjit.png",
+        img: "/images/bishwjit1.png",
         bio: "Expert in biomaterials and tissue engineering with over 20 years of research experience",
         detailedBio: "Professor Dr. Bishwajit Bhowmick is a distinguished researcher in biomaterials and tissue engineering. He has over 20 years of experience in developing advanced biomaterials for medical applications. His research focuses on biodegradable polymers, drug delivery systems, and tissue regeneration.\n\nAt the Biohub, he provides strategic guidance on biomaterials development and tissue engineering applications. He oversees the development of novel biomaterials for medical devices, drug delivery systems, and regenerative medicine applications.",
         education: "PhD | University of Tokyo"
@@ -707,17 +708,45 @@ function InstituteDetail({ it, data, palette }) {
       { 
         name: "Tasnima Siddique, PhD", 
         title: "Research Director", 
-        img: "/images/tasnima.png",
+        img: "/images/tasnima1.png",
         bio: "Expert in laboratory management and quality assurance in biomedical research",
         detailedBio: "Tasnima Siddique is a seasoned professional with extensive experience in laboratory management and quality assurance in biomedical research. She holds a PhD in Biochemistry and has worked in leading research institutions in Bangladesh and abroad.\n\nAt the Biohub, she oversees laboratory operations, ensures quality assurance compliance, and manages research infrastructure. She also provides training and mentorship to junior researchers and lab technicians.",
         education: "PhD | University of Dhaka"
       }
     ],
     "01_associates": [
-      { name: "Fatin Noor", title: "", img: "/images/fatin.jpg" },
-      { name: "Mehedi Hasan Pritom", title: "", img: "/images/pritom.png" },
-      { name: "Rahul Baroi", title: "", img: "/images/rahul.png" },
-      { name: "Borno Das", title: "", img: "/images/borno.png" }
+      { 
+        name: "Fatin Noor", 
+        title: "Executive-Operations and Supply Chain\nInstitute of Health Sciences", 
+        img: "/images/fatin.jpg",
+        bio: "",
+        detailedBio: "Fatin pursued Biochemistry and Biotechnology at North South University, gaining a comprehensive foundation in industrial and biomedical sciences through both theory and wet-lab work. His undergraduate research investigated antimicrobial resistance and ESBL-producing Enterobacteriaceae in Dhaka's poultry market, using phenotypic and genotypic methods. He developed competencies in bacterial isolation, antibiotic susceptibility testing, DNA extraction, PCR, gel electrophoresis, and gene identification, later expanding these skills to secondary metabolite screening at NGRI and Invent laboratories.\n\nAt the Aquanimity Biohubs, Fatin is establishing Quality Assurance SOPs aligned with FDA, EFSA, BSTI, BFSA, and related standards. His work spans formulation refinement, microbial safety in production environments, and biochemical data interpretation from clinical trials.",
+        education: "BSc in Biochemistry and Biotechnology | North South University"
+      },
+      { 
+        name: "Mehedi Hasan Pritom", 
+        title: "Senior Microbiologist\nInstitute of Omics & Molecular Microbiology", 
+        img: "/images/pritom1.png",
+        bio: "",
+        detailedBio: "Mehedi Hasan Pritom is a biotechnologist trained across biochemical engineering and microbiology, with academic foundations at BUET (MSc in Biochemical Technology) and Khulna University (BSc in Biotechnology and Genetic Engineering). He has built research and teaching experience as a Graduate Research Assistant and Graduate Teaching Assistant, alongside earlier industrial and academic roles. His technical profile spans microbial isolation and biochemical assays, antimicrobial screening, plant-extract processing, nanocomposite fabrication, and in vivo models, complemented by computational drug-discovery tools and operation of advanced analytical platforms including HPLC, qPCR, FTIR, and SEM.\n\nAt the Biohubs, he is a key member of the Blue Microbiome Initiative, where he works on environmental microbe identification for remediation and the genetic engineering of selected strains, integrating classical microbiology with molecular and bioengineering workflows.",
+        education: "BSc in Biotechnology and Genetic Engineering | Khulna University | MSc in Biochemical Technology | BUET"
+      },
+      { 
+        name: "Rahul Baroi", 
+        title: "Junior Research Associate- Nutraceuticals and Vaccine Engineering\nInstitute of Applied Bioengineering & Material Science", 
+        img: "/images/rahul.png",
+        bio: "",
+        detailedBio: "Rahul Baroi is a Chemical Engineering graduate from Bangladesh University of Engineering and Technology (BUET), specializing in Biochemical Engineering, with research interests in biotechnology, bioprocessing, and sustainable chemical processes. He currently works as a Junior Research Assistant at Aquanimity Bangladesh Limited, where his research focuses on bioactive compound extraction, purification, HPLC quantification, formulation support, and preclinical evaluation. His work includes optimizing microwave-assisted extraction of vasicine from Adhatoda vasica using Response Surface Methodology (RSM) to enhance extraction efficiency and product quality. He is also involved in purification research and experimental planning for bioactive formulations. In preclinical research, Rahul contributes to in vivo mouse studies, oral glucose tolerance testing (OGTT), GLP-1 assay planning, and sandwich ELISA-based biochemical evaluation. Additionally, he supports vaccine engineering and drug delivery research involving formulation development, process optimization, and analytical evaluation.",
+        education: "BSc in Chemical Engineering | BUET"
+      },
+      { 
+        name: "Borno Das", 
+        title: "Junior Research Associate- Nutraceuticals and Vaccine Engineering\nInstitute of Applied Bioengineering & Material Science", 
+        img: "/images/borno.png",
+        bio: "",
+        detailedBio: "Borno Das holds a BSc in Chemical Engineering from Bangladesh University of Engineering and Technology (BUET) and completed higher secondary studies at Ananda Mohan College. Specializing in biochemical engineering and bioprocessing, he works as a Junior Research Assistant on a nutraceuticals project at Aquanimity Bangladesh Limited. His research focuses on bioactive compound extraction, purification, characterization, and formulation development. His technical expertise spans HPLC, FTIR, UV-Vis spectroscopy, and microwave-assisted extraction, which formed the basis of his thesis on vasicine optimization. Borno also contributes to drug delivery research, vaccine engineering, oral glucose tolerance testing, and sandwich ELISA-based biochemical evaluation.",
+        education: "BSc in Chemical Engineering | BUET"
+      }
     ],
     "02": [
       { 
@@ -747,7 +776,30 @@ function InstituteDetail({ it, data, palette }) {
       }
     ],
     "02_associates": [
-      { name: "Mehedi Hasan Pritom", title: "", img: "/images/pritom.png" },
+      { 
+        name: "Mehedi Hasan Pritom", 
+        title: "Senior Microbiologist\nInstitute of Omics & Molecular Microbiology", 
+        img: "/images/pritom1.png",
+        bio: "",
+        detailedBio: "Mehedi Hasan Pritom is a biotechnologist trained across biochemical engineering and microbiology, with academic foundations at BUET (MSc in Biochemical Technology) and Khulna University (BSc in Biotechnology and Genetic Engineering). He has built research and teaching experience as a Graduate Research Assistant and Graduate Teaching Assistant, alongside earlier industrial and academic roles. His technical profile spans microbial isolation and biochemical assays, antimicrobial screening, plant-extract processing, nanocomposite fabrication, and in vivo models, complemented by computational drug-discovery tools and operation of advanced analytical platforms including HPLC, qPCR, FTIR, and SEM.\n\nAt the Biohubs, he is a key member of the Blue Microbiome Initiative, where he works on environmental microbe identification for remediation and the genetic engineering of selected strains, integrating classical microbiology with molecular and bioengineering workflows.",
+        education: "BSc in Biotechnology and Genetic Engineering | Khulna University | MSc in Biochemical Technology | BUET"
+      },
+      { 
+        name: "Rahul Baroi", 
+        title: "Junior Research Associate- Nutraceuticals and Vaccine Engineering\nInstitute of Applied Bioengineering & Material Science", 
+        img: "/images/rahul.png",
+        bio: "",
+        detailedBio: "Rahul Baroi is a Chemical Engineering graduate from Bangladesh University of Engineering and Technology (BUET), specializing in Biochemical Engineering, with research interests in biotechnology, bioprocessing, and sustainable chemical processes. He currently works as a Junior Research Assistant at Aquanimity Bangladesh Limited, where his research focuses on bioactive compound extraction, purification, HPLC quantification, formulation support, and preclinical evaluation. His work includes optimizing microwave-assisted extraction of vasicine from Adhatoda vasica using Response Surface Methodology (RSM) to enhance extraction efficiency and product quality. He is also involved in purification research and experimental planning for bioactive formulations. In preclinical research, Rahul contributes to in vivo mouse studies, oral glucose tolerance testing (OGTT), GLP-1 assay planning, and sandwich ELISA-based biochemical evaluation. Additionally, he supports vaccine engineering and drug delivery research involving formulation development, process optimization, and analytical evaluation.",
+        education: "BSc in Chemical Engineering | BUET"
+      },
+      { 
+        name: "Borno Das", 
+        title: "Junior Research Associate- Nutraceuticals and Vaccine Engineering\nInstitute of Applied Bioengineering & Material Science", 
+        img: "/images/borno.png",
+        bio: "",
+        detailedBio: "Borno Das holds a BSc in Chemical Engineering from Bangladesh University of Engineering and Technology (BUET) and completed higher secondary studies at Ananda Mohan College. Specializing in biochemical engineering and bioprocessing, he works as a Junior Research Assistant on a nutraceuticals project at Aquanimity Bangladesh Limited. His research focuses on bioactive compound extraction, purification, characterization, and formulation development. His technical expertise spans HPLC, FTIR, UV-Vis spectroscopy, and microwave-assisted extraction, which formed the basis of his thesis on vasicine optimization. Borno also contributes to drug delivery research, vaccine engineering, oral glucose tolerance testing, and sandwich ELISA-based biochemical evaluation.",
+        education: "BSc in Chemical Engineering | BUET"
+      }
     ],
     "03": [
       { 
@@ -761,117 +813,138 @@ function InstituteDetail({ it, data, palette }) {
       }
     ],
     "03_associates": [
-      { name: "Mehedi Hasan Pritom", title: "", img: "/images/pritom.png" },
+      { 
+        name: "Mehedi Hasan Pritom", 
+        title: "Senior Microbiologist\nInstitute of Omics & Molecular Microbiology", 
+        img: "/images/pritom1.png",
+        bio: "",
+        detailedBio: "Mehedi Hasan Pritom is a biotechnologist trained across biochemical engineering and microbiology, with academic foundations at BUET (MSc in Biochemical Technology) and Khulna University (BSc in Biotechnology and Genetic Engineering). He has built research and teaching experience as a Graduate Research Assistant and Graduate Teaching Assistant, alongside earlier industrial and academic roles. His technical profile spans microbial isolation and biochemical assays, antimicrobial screening, plant-extract processing, nanocomposite fabrication, and in vivo models, complemented by computational drug-discovery tools and operation of advanced analytical platforms including HPLC, qPCR, FTIR, and SEM.\n\nAt the Biohubs, he is a key member of the Blue Microbiome Initiative, where he works on environmental microbe identification for remediation and the genetic engineering of selected strains, integrating classical microbiology with molecular and bioengineering workflows.",
+        education: "BSc in Biotechnology and Genetic Engineering | Khulna University | MSc in Biochemical Technology | BUET"
+      }
     ],
     "04": [],
     "04_associates": [
-      { name: "Mashnoon Mayad", title: "", img: "/images/mashnoon.png" },
+      { 
+        name: "Mashnoon Mayad", 
+        title: "AI/ML Engineer\nInstitute of Computational Biology & AI", 
+        img: "/images/mashnoon.png",
+        bio: "",
+        detailedBio: "Mashnoon Mayad began his journey in Computer Science at BRAC University, where he specialized in Artificial Intelligence through his thesis project AresNN, an attention-based CNN Transformer hybrid with Grad-CAM for explainable skin cancer detection. He complemented this work with independent research on dental disease classification. These projects built his foundation in deep learning, model design, and applied research. He later joined BRAC's Central Data Team, contributing to large-scale analysis across CRMFT, MF, UPG, UDP, and BracNet datasets. During this time, he also developed practical ML and NLP solutions such as the SAINT-based aid-eligibility model for BRAC UPG.\n\nAt the Aquanimity Biohubs, he is working as an AI/ML Lead to develop the Aquanimity Bioplatform, aiding computational biodiscovery research workflows among other in-silico biology, including antibody design",
+        education: "BSc in Computer Science | BRAC University"
+      },
     ]
   };
 
   const instituteResearchers = researchers[it.n] || [];
   const instituteAssociates = researchers[it.n + "_associates"] || [];
 
-  // Render researcher card - FIXED for mobile
-  const renderResearcherCard = (researcher, idx, isAssociate = false) => (
-    <div 
-      key={idx}
-      onClick={() => {
-        if (!isAssociate && researcher.detailedBio) {
-          setSelectedMember(researcher);
-        }
-      }}
-      style={{ 
-        textAlign: 'center',
-        padding: isAssociate ? '12px 8px' : '16px 12px',
-        background: isAssociate ? 'rgba(31,110,122,0.05)' : 'var(--bone)',
-        borderRadius: 16,
-        transition: 'all 0.3s ease',
-        border: isAssociate ? '1px solid rgba(31,110,122,0.1)' : '1px solid transparent',
-        cursor: !isAssociate && researcher.detailedBio ? 'pointer' : 'default',
-        width: '100%',
-        maxWidth: '100%',
-        margin: '0 auto',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
-      }}
-      onMouseEnter={(e) => {
-        if (!isAssociate && researcher.detailedBio) {
-          e.currentTarget.style.transform = 'translateY(-4px)';
-          e.currentTarget.style.borderColor = 'var(--accent)';
-          e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)';
-        }
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = 'translateY(0)';
-        e.currentTarget.style.borderColor = isAssociate ? 'rgba(31,110,122,0.1)' : 'transparent';
-        e.currentTarget.style.boxShadow = 'none';
-      }}
-    >
-      <div style={{ 
-        width: isAssociate ? 70 : 90,
-        height: isAssociate ? 70 : 90,
-        borderRadius: '50%', 
-        overflow: 'hidden', 
-        margin: '0 auto 10px',
-        border: isAssociate ? '2px solid rgba(31,110,122,0.3)' : '3px solid var(--accent)',
-        boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-        flexShrink: 0,
-        position: 'relative',
-        backgroundColor: '#f0f0f0'
-      }}>
-        <img 
-          src={researcher.img} 
-          alt={researcher.name} 
-          style={{ 
-            width: '100%', 
-            height: '100%', 
-            objectFit: 'cover',
-            display: 'block',
-            transition: 'transform 0.3s ease'
-          }}
-          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-          onError={(e) => {
-            e.target.src = 'https://via.placeholder.com/100x100?text=' + researcher.name.charAt(0);
-            e.target.style.objectFit = 'contain';
-          }}
-        />
-      </div>
-      <div style={{ 
-        fontWeight: 600, 
-        fontSize: isAssociate ? 13 : 15, 
-        color: '#0E1136',
-        lineHeight: 1.3,
-        marginTop: 4
-      }}>
-        {researcher.name}
-      </div>
-      <div style={{ 
-        fontSize: isAssociate ? 11 : 12, 
-        color: isAssociate ? 'rgba(31,110,122,0.7)' : 'var(--accent)', 
-        marginTop: 2, 
-        fontWeight: 500,
-        lineHeight: 1.4,
-        padding: '0 4px'
-      }}>
-        {researcher.title}
-      </div>
-      {!isAssociate && researcher.detailedBio && (
+  // Render researcher card - UPDATED for associates to be clickable
+  const renderResearcherCard = (researcher, idx, isAssociate = false) => {
+    const hasDetails = researcher.detailedBio || researcher.education || researcher.achievement;
+    const isClickable = !isAssociate || (isAssociate && hasDetails);
+    
+    return (
+      <div 
+        key={idx}
+        onClick={() => {
+          if (isClickable && hasDetails) {
+            setSelectedMember(researcher);
+          }
+        }}
+        style={{ 
+          textAlign: 'center',
+          padding: isAssociate ? '16px 12px' : '16px 12px',
+          background: isAssociate ? 'rgba(31,110,122,0.05)' : 'var(--bone)',
+          borderRadius: 16,
+          transition: 'all 0.3s ease',
+          border: isAssociate ? '1px solid rgba(31,110,122,0.15)' : '1px solid transparent',
+          cursor: isClickable && hasDetails ? 'pointer' : 'default',
+          width: '100%',
+          maxWidth: '100%',
+          margin: '0 auto',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          boxShadow: isAssociate ? '0 2px 8px rgba(0,0,0,0.04)' : 'none'
+        }}
+        onMouseEnter={(e) => {
+          if (isClickable && hasDetails) {
+            e.currentTarget.style.transform = 'translateY(-4px)';
+            e.currentTarget.style.borderColor = 'var(--accent)';
+            e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)';
+          }
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'translateY(0)';
+          e.currentTarget.style.borderColor = isAssociate ? 'rgba(31,110,122,0.15)' : 'transparent';
+          e.currentTarget.style.boxShadow = isAssociate ? '0 2px 8px rgba(0,0,0,0.04)' : 'none';
+        }}
+      >
         <div style={{ 
-          fontSize: 10, 
-          color: '#0E1136', 
-          marginTop: 6,
-          fontStyle: 'italic',
-          opacity: 0.6
+          width: isAssociate ? 80 : 90,
+          height: isAssociate ? 80 : 90,
+          borderRadius: '50%', 
+          overflow: 'hidden', 
+          margin: '0 auto 10px',
+          border: isAssociate ? '3px solid var(--accent)' : '3px solid var(--accent)',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+          flexShrink: 0,
+          position: 'relative',
+          backgroundColor: '#f0f0f0'
         }}>
-          Click for details
+          <img 
+            src={researcher.img} 
+            alt={researcher.name} 
+            style={{ 
+              width: '100%', 
+              height: '100%', 
+              objectFit: 'cover',
+              display: 'block',
+              transition: 'transform 0.3s ease'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+            onError={(e) => {
+              e.target.src = 'https://via.placeholder.com/100x100?text=' + researcher.name.charAt(0);
+              e.target.style.objectFit = 'contain';
+            }}
+          />
         </div>
-      )}
-    </div>
-  );
+        <div style={{ 
+          fontWeight: 600, 
+          fontSize: isAssociate ? 14 : 15, 
+          color: '#0E1136',
+          lineHeight: 1.3,
+          marginTop: 4
+        }}>
+          {researcher.name}
+        </div>
+        <div style={{ 
+          fontSize: isAssociate ? 11 : 12, 
+          color: isAssociate ? 'var(--accent)' : 'var(--accent)', 
+          marginTop: 2, 
+          fontWeight: 500,
+          lineHeight: 1.4,
+          padding: '0 4px',
+          whiteSpace: 'pre-line'
+        }}>
+          {researcher.title}
+        </div>
+        {isAssociate && hasDetails && (
+          <div style={{ 
+            fontSize: 10, 
+            color: '#0E1136', 
+            marginTop: 6,
+            fontStyle: 'italic',
+            opacity: 0.5
+          }}>
+            Click for details
+          </div>
+        )}
+      </div>
+    );
+  };
 
   const renderPlaceholder = (type) => (
     <div style={{ 
@@ -913,7 +986,7 @@ function InstituteDetail({ it, data, palette }) {
     </div>
   );
 
-  // Member Details Inline Component
+  // Member Details Inline Component - UPDATED for better mobile responsiveness
   const MemberDetailsInline = ({ member, onClose }) => {
     const detailsRef = useRef(null);
 
@@ -1358,7 +1431,7 @@ function InstituteDetail({ it, data, palette }) {
 
           {/* Principal Researchers */}
           <div className="id-principal-section" style={{
-            marginBottom: '32px'
+            marginBottom: '48px'
           }}>
             <h4 className="id-principal-title" style={{
               fontSize: 'clamp(16px, 1.2vw, 18px)',
@@ -1380,12 +1453,12 @@ function InstituteDetail({ it, data, palette }) {
               {instituteResearchers.length === 0 ? (
                 renderPlaceholder('researcher')
               ) : (
-                instituteResearchers.map((researcher, idx) => renderResearcherCard(researcher, idx))
+                instituteResearchers.map((researcher, idx) => renderResearcherCard(researcher, idx, false))
               )}
             </div>
           </div>
 
-          {/* Research Associates */}
+          {/* Research Associates - NOW WITH SAME DESIGN AS PRINCIPAL INVESTIGATORS */}
           <div className="id-associates-section" style={{
             marginBottom: '32px'
           }}>
@@ -1401,8 +1474,8 @@ function InstituteDetail({ it, data, palette }) {
             </h4>
             <div className="id-associates-grid" style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-              gap: '16px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+              gap: '20px',
               justifyContent: 'center',
               alignItems: 'stretch'
             }}>
@@ -1537,49 +1610,10 @@ function InstituteDetail({ it, data, palette }) {
 
         .id-associates-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-          gap: 16px;
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          gap: 20px;
           justify-content: center;
           align-items: stretch;
-        }
-
-        /* Researcher Card - Mobile Optimized */
-        .id-researchers-grid > div,
-        .id-associates-grid > div {
-          width: 100%;
-          max-width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-
-        /* Image container - ensures consistent sizing */
-        .id-researchers-grid .researcher-image,
-        .id-associates-grid .researcher-image {
-          width: 90px;
-          height: 90px;
-          border-radius: 50%;
-          overflow: hidden;
-          flex-shrink: 0;
-          margin: 0 auto 10px;
-          border: 3px solid #1F6E7A;
-          background: #f0f0f0;
-          position: relative;
-        }
-
-        .id-associates-grid .researcher-image {
-          width: 70px;
-          height: 70px;
-          border: 2px solid rgba(31,110,122,0.3);
-        }
-
-        .id-researchers-grid .researcher-image img,
-        .id-associates-grid .researcher-image img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
         }
 
         /* Mobile Fixes */
@@ -1605,40 +1639,13 @@ function InstituteDetail({ it, data, palette }) {
           }
 
           .id-researchers-grid {
-  grid-template-columns: repeat(auto-fit, minmax(140px, 160px)) !important;
-  gap: 12px !important;
-  justify-content: center !important;
-}
-
-.id-associates-grid {
-  grid-template-columns: repeat(auto-fit, minmax(120px, 140px)) !important;
-  gap: 10px !important;
-  justify-content: center !important;
-}
-          /* Mobile image sizes */
-          .id-researchers-grid .researcher-image {
-            width: 70px !important;
-            height: 70px !important;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+            gap: 12px !important;
           }
 
-          .id-associates-grid .researcher-image {
-            width: 60px !important;
-            height: 60px !important;
-          }
-
-          /* Mobile text sizes */
-          .id-researchers-grid > div > div:first-child {
-            font-size: 13px !important;
-          }
-          .id-researchers-grid > div > div:nth-child(2) {
-            font-size: 10px !important;
-          }
-          
-          .id-associates-grid > div > div:first-child {
-            font-size: 12px !important;
-          }
-          .id-associates-grid > div > div:nth-child(2) {
-            font-size: 9px !important;
+          .id-associates-grid {
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+            gap: 12px !important;
           }
 
           .id-collab-cta {
@@ -1661,31 +1668,21 @@ function InstituteDetail({ it, data, palette }) {
           }
 
           .id-associates-grid {
-            gap: 8px !important;
-          }
-
-          .id-researchers-grid .researcher-image {
-            width: 60px !important;
-            height: 60px !important;
-          }
-
-          .id-associates-grid .researcher-image {
-            width: 50px !important;
-            height: 50px !important;
+            gap: 10px !important;
           }
 
           .id-researchers-grid > div > div:first-child {
-            font-size: 12px !important;
+            font-size: 13px !important;
           }
           .id-researchers-grid > div > div:nth-child(2) {
-            font-size: 9px !important;
+            font-size: 10px !important;
           }
           
           .id-associates-grid > div > div:first-child {
-            font-size: 11px !important;
+            font-size: 12px !important;
           }
           .id-associates-grid > div > div:nth-child(2) {
-            font-size: 8px !important;
+            font-size: 9px !important;
           }
         }
 
@@ -1695,16 +1692,6 @@ function InstituteDetail({ it, data, palette }) {
           }
           .id-associates-grid {
             grid-template-columns: repeat(2, 1fr) !important;
-          }
-
-          .id-researchers-grid .researcher-image {
-            width: 50px !important;
-            height: 50px !important;
-          }
-
-          .id-associates-grid .researcher-image {
-            width: 45px !important;
-            height: 45px !important;
           }
 
           .id-researchers-grid > div > div:first-child {

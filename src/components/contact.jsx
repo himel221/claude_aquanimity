@@ -24,37 +24,82 @@ const useReveal = () => {
 function Contact({ palette, onOpen }) {
   const ref = useReveal();
   const [selectedRole, setSelectedRole] = useState('');
-  const [formData, setFormData] = useState({ name: '', email: '', organisation: '', message: '' });
+  const [formData, setFormData] = useState({ 
+    name: '', 
+    email: '', 
+    phone: '', 
+    organisation: '', 
+    message: '' 
+  });
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
 
   const roles = ['Founder', 'Scientist', 'Investor', 'Operator', 'Government', 'Press'];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors({ ...errors, [name]: '' });
+  };
+
+  const handleBlur = (field) => {
+    setTouched({ ...touched, [field]: true });
+    if (field === 'email' && formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
+      setErrors({ ...errors, email: 'Please enter a valid email' });
+    }
+    if (field === 'phone' && formData.phone && !/^[\+\d\s\-()]{8,20}$/.test(formData.phone.trim())) {
+      setErrors({ ...errors, phone: 'Please enter a valid phone number' });
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = 'Name is required';
+    if (!formData.email.trim()) newErrors.email = 'Email is required';
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Please enter a valid email';
+    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
+    else if (!/^[\+\d\s\-()]{8,20}$/.test(formData.phone.trim())) newErrors.phone = 'Please enter a valid phone number';
+    if (!formData.organisation.trim()) newErrors.organisation = 'Organisation is required';
+    if (!formData.message.trim()) newErrors.message = 'Message is required';
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const isFormValid = () => (
-    formData.name.trim() !== '' && formData.email.trim() !== '' &&
-    formData.organisation.trim() !== '' && formData.message.trim() !== ''
+    formData.name.trim() !== '' && 
+    formData.email.trim() !== '' &&
+    /\S+@\S+\.\S+/.test(formData.email) &&
+    formData.phone.trim() !== '' &&
+    /^[\+\d\s\-()]{8,20}$/.test(formData.phone.trim()) &&
+    formData.organisation.trim() !== '' && 
+    formData.message.trim() !== ''
   );
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!isFormValid()) { alert('Please fill in all required fields.'); return; }
+    setTouched({ name: true, email: true, phone: true, organisation: true, message: true });
+    if (!validateForm()) return;
 
-    const subject = `Brief from ${formData.name} - ${selectedRole || 'Guest'}`;
-    const body = `Name: ${formData.name}\nEmail: ${formData.email}\nOrganisation: ${formData.organisation}\nRole: ${selectedRole || 'Not specified'}\n\nMessage:\n${formData.message}`;
+    const subject = `Message from ${formData.name}`;
+    const body = 
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n` +
+      `Phone: ${formData.phone}\n` +
+      `Organisation: ${formData.organisation}\n` +
+      `Message:\n${formData.message}`;
     window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=aquanimitygroup@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
 
-    setFormData({ name: '', email: '', organisation: '', message: '' });
+    setFormData({ name: '', email: '', phone: '', organisation: '', message: '' });
     setSelectedRole('');
+    setErrors({});
+    setTouched({});
   };
 
-  const inputStyle = {
+  const inputStyle = (hasError) => ({
     width: '100%',
     background: 'transparent',
     border: 'none',
-    borderBottom: '1px solid #c8c5bc',
+    borderBottom: `2px solid ${hasError ? '#e74c3c' : '#c8c5bc'}`,
     padding: '12px 0',
     color: '#0E1136',
     fontSize: 16,
@@ -62,7 +107,7 @@ function Contact({ palette, onOpen }) {
     transition: 'border-color 0.3s ease',
     fontFamily: "'Red Hat Display', sans-serif",
     fontWeight: 400
-  };
+  });
 
   const labelStyle = {
     fontSize: 11,
@@ -73,6 +118,18 @@ function Contact({ palette, onOpen }) {
     marginBottom: 8,
     fontFamily: "'Red Hat Display', sans-serif",
     fontWeight: 500
+  };
+
+  const handleFieldFocus = (e) => {
+    e.target.style.borderBottomColor = '#0f1a2a';
+  };
+
+  const handleFieldBlur = (e, field) => {
+    const hasError = errors[field] && touched[field];
+    if (!hasError) {
+      e.target.style.borderBottomColor = '#c8c5bc';
+    }
+    handleBlur(field);
   };
 
   return (
@@ -98,26 +155,66 @@ function Contact({ palette, onOpen }) {
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-field">
                 <label style={labelStyle}>Your Name <span style={{ color: '#e74c3c' }}>*</span></label>
-                <input type="text" name="name" value={formData.name} onChange={handleInputChange}
-                  placeholder="Mahmuda Ahmed" required style={inputStyle}
-                  onFocus={(e) => e.target.style.borderBottomColor = '#0f1a2a'}
-                  onBlur={(e) => e.target.style.borderBottomColor = '#c8c5bc'} />
+                <input 
+                  type="text" 
+                  name="name" 
+                  value={formData.name} 
+                  onChange={handleInputChange}
+                  onFocus={handleFieldFocus}
+                  onBlur={(e) => handleFieldBlur(e, 'name')}
+                  placeholder="Mahmuda Ahmed" 
+                  required 
+                  style={inputStyle(errors.name && touched.name)}
+                />
+                {errors.name && touched.name && <div style={{ fontSize: 11, color: '#e74c3c', marginTop: 4 }}>{errors.name}</div>}
               </div>
 
               <div className="form-field">
                 <label style={labelStyle}>Email <span style={{ color: '#e74c3c' }}>*</span></label>
-                <input type="email" name="email" value={formData.email} onChange={handleInputChange}
-                  placeholder="you@org.com" required style={inputStyle}
-                  onFocus={(e) => e.target.style.borderBottomColor = '#0f1a2a'}
-                  onBlur={(e) => e.target.style.borderBottomColor = '#c8c5bc'} />
+                <input 
+                  type="email" 
+                  name="email" 
+                  value={formData.email} 
+                  onChange={handleInputChange}
+                  onFocus={handleFieldFocus}
+                  onBlur={(e) => handleFieldBlur(e, 'email')}
+                  placeholder="you@org.com" 
+                  required 
+                  style={inputStyle(errors.email && touched.email)}
+                />
+                {errors.email && touched.email && <div style={{ fontSize: 11, color: '#e74c3c', marginTop: 4 }}>{errors.email}</div>}
+              </div>
+
+              <div className="form-field">
+                <label style={labelStyle}>Phone Number <span style={{ color: '#e74c3c' }}>*</span></label>
+                <input 
+                  type="tel" 
+                  name="phone" 
+                  value={formData.phone} 
+                  onChange={handleInputChange}
+                  onFocus={handleFieldFocus}
+                  onBlur={(e) => handleFieldBlur(e, 'phone')}
+                  placeholder="+880 1234 567890" 
+                  required 
+                  style={inputStyle(errors.phone && touched.phone)}
+                />
+                {errors.phone && touched.phone && <div style={{ fontSize: 11, color: '#e74c3c', marginTop: 4 }}>{errors.phone}</div>}
               </div>
 
               <div className="form-field">
                 <label style={labelStyle}>Organisation <span style={{ color: '#e74c3c' }}>*</span></label>
-                <input type="text" name="organisation" value={formData.organisation} onChange={handleInputChange}
-                  placeholder="ICDDR,B / BRAC / Independent" required style={inputStyle}
-                  onFocus={(e) => e.target.style.borderBottomColor = '#0f1a2a'}
-                  onBlur={(e) => e.target.style.borderBottomColor = '#c8c5bc'} />
+                <input 
+                  type="text" 
+                  name="organisation" 
+                  value={formData.organisation} 
+                  onChange={handleInputChange}
+                  onFocus={handleFieldFocus}
+                  onBlur={(e) => handleFieldBlur(e, 'organisation')}
+                  placeholder="ICDDR,B / BRAC / Independent" 
+                  required 
+                  style={inputStyle(errors.organisation && touched.organisation)}
+                />
+                {errors.organisation && touched.organisation && <div style={{ fontSize: 11, color: '#e74c3c', marginTop: 4 }}>{errors.organisation}</div>}
               </div>
 
               <div className="form-field">
@@ -134,11 +231,18 @@ function Contact({ palette, onOpen }) {
 
               <div className="form-field">
                 <label style={labelStyle}>What's on your mind <span style={{ color: '#e74c3c' }}>*</span></label>
-                <textarea name="message" value={formData.message} onChange={handleInputChange}
-                  placeholder="A line or two — we'll reply within 48h." rows={3} required
-                  style={{ ...inputStyle, resize: 'vertical' }}
-                  onFocus={(e) => e.target.style.borderBottomColor = '#0f1a2a'}
-                  onBlur={(e) => e.target.style.borderBottomColor = '#c8c5bc'} />
+                <textarea 
+                  name="message" 
+                  value={formData.message} 
+                  onChange={handleInputChange}
+                  onFocus={handleFieldFocus}
+                  onBlur={(e) => handleFieldBlur(e, 'message')}
+                  placeholder="A line or two — we'll reply within 48h." 
+                  rows={3} 
+                  required 
+                  style={{ ...inputStyle(errors.message && touched.message), resize: 'vertical' }}
+                />
+                {errors.message && touched.message && <div style={{ fontSize: 11, color: '#e74c3c', marginTop: 4 }}>{errors.message}</div>}
               </div>
 
               <button type="submit" className="submit-btn"

@@ -23,7 +23,13 @@ const useReveal = () => {
 
 function FooterCTA({ palette, onOpen }) {
   const ref = useReveal();
-  const [formData, setFormData] = useState({ name: '', email: '', organisation: '', message: '' });
+  const [formData, setFormData] = useState({ 
+    name: '', 
+    email: '', 
+    phone: '', 
+    organisation: '', 
+    message: '' 
+  });
   const [selectedTags, setSelectedTags] = useState([]);
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
@@ -35,6 +41,8 @@ function FooterCTA({ palette, onOpen }) {
     if (!formData.name.trim()) newErrors.name = 'Name is required';
     if (!formData.email.trim()) newErrors.email = 'Email is required';
     else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Please enter a valid email';
+    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
+    else if (!/^[\+\d\s\-\(\)]{8,20}$/.test(formData.phone.trim())) newErrors.phone = 'Please enter a valid phone number';
     if (!formData.organisation.trim()) newErrors.organisation = 'Organisation is required';
     if (!formData.message.trim()) newErrors.message = 'Message is required';
     setErrors(newErrors);
@@ -42,18 +50,30 @@ function FooterCTA({ palette, onOpen }) {
   };
 
   const isFormValid = () => (
-    formData.name.trim() !== '' && formData.email.trim() !== '' &&
-    /\S+@\S+\.\S+/.test(formData.email) && formData.organisation.trim() !== '' && formData.message.trim() !== ''
+    formData.name.trim() !== '' && 
+    formData.email.trim() !== '' &&
+    /\S+@\S+\.\S+/.test(formData.email) && 
+    formData.phone.trim() !== '' &&
+    /^[\+\d\s\-\(\)]{8,20}$/.test(formData.phone.trim()) &&
+    formData.organisation.trim() !== '' && 
+    formData.message.trim() !== ''
   );
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTouched({ name: true, email: true, organisation: true, message: true });
+    setTouched({ name: true, email: true, phone: true, organisation: true, message: true });
     if (!validateForm()) return;
-    const subject = encodeURIComponent('Inquiry from ' + formData.name);
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nOrganisation: ${formData.organisation}\nI am: ${selectedTags.join(', ') || 'Not specified'}\n\nMessage:\n${formData.message}`);
+    const subject = encodeURIComponent('Message from ' + formData.name);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n` +
+      `Phone: ${formData.phone}\n` +
+      `Organisation: ${formData.organisation}\n` +
+      `I am: ${selectedTags.join(', ') || 'Not specified'}\n\n` +
+      `Message:\n${formData.message}`
+    );
     window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=contact@aquanimitygroup.com&su=${subject}&body=${body}`, '_blank');
-    setFormData({ name: '', email: '', organisation: '', message: '' });
+    setFormData({ name: '', email: '', phone: '', organisation: '', message: '' });
     setSelectedTags([]);
     setErrors({});
     setTouched({});
@@ -69,6 +89,8 @@ function FooterCTA({ palette, onOpen }) {
     setTouched({ ...touched, [field]: true });
     if (field === 'email' && formData.email && !/\S+@\S+\.\S+/.test(formData.email))
       setErrors({ ...errors, email: 'Please enter a valid email' });
+    if (field === 'phone' && formData.phone && !/^[\+\d\s\-\(\)]{8,20}$/.test(formData.phone.trim()))
+      setErrors({ ...errors, phone: 'Please enter a valid phone number' });
   };
 
   return (
@@ -91,20 +113,90 @@ function FooterCTA({ palette, onOpen }) {
 
           <form onSubmit={handleSubmit} className="contact-form">
             <div style={{ fontSize: 11, letterSpacing: '0.22em', color: 'var(--accent)', marginBottom: 20, fontWeight: 600 }}>BRIEF · 100 Words</div>
-            <Field label="Your name" name="name" value={formData.name} onChange={handleInputChange} onBlur={() => handleBlur('name')} placeholder="Mahmuda Ahmed" error={touched.name && errors.name} required />
-            <Field label="Email" type="email" name="email" value={formData.email} onChange={handleInputChange} onBlur={() => handleBlur('email')} placeholder="you@org.com" error={touched.email && errors.email} required />
-            <Field label="Organisation" name="organisation" value={formData.organisation} onChange={handleInputChange} onBlur={() => handleBlur('organisation')} placeholder="ICDDR,B / BRAC / Independent" error={touched.organisation && errors.organisation} required />
+            
+            <Field 
+              label="Your name" 
+              name="name" 
+              value={formData.name} 
+              onChange={handleInputChange} 
+              onBlur={() => handleBlur('name')} 
+              placeholder="Mahmuda Ahmed" 
+              error={touched.name && errors.name} 
+              required 
+            />
+            
+            <Field 
+              label="Email" 
+              type="email" 
+              name="email" 
+              value={formData.email} 
+              onChange={handleInputChange} 
+              onBlur={() => handleBlur('email')} 
+              placeholder="you@org.com" 
+              error={touched.email && errors.email} 
+              required 
+            />
+            
+            <Field 
+              label="Phone Number" 
+              type="tel" 
+              name="phone" 
+              value={formData.phone} 
+              onChange={handleInputChange} 
+              onBlur={() => handleBlur('phone')} 
+              placeholder="+880 1234 567890" 
+              error={touched.phone && errors.phone} 
+              required 
+            />
+            
+            <Field 
+              label="Organisation" 
+              name="organisation" 
+              value={formData.organisation} 
+              onChange={handleInputChange} 
+              onBlur={() => handleBlur('organisation')} 
+              placeholder="ICDDR,B / BRAC / Independent" 
+              error={touched.organisation && errors.organisation} 
+              required 
+            />
+            
             <div style={{ marginBottom: 20 }}>
               <label style={{ display: 'block', marginBottom: 8, fontSize: 11, letterSpacing: '0.2em', color: 'var(--muted)', fontWeight: 500 }}>I am (optional)</label>
               <div className="tags-wrap">
                 {tags.map(tag => (
-                  <button key={tag} type="button" onClick={() => setSelectedTags(prev => prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag])}
-                    className={`tag-chip ${selectedTags.includes(tag) ? 'active' : ''}`}>{tag}</button>
+                  <button 
+                    key={tag} 
+                    type="button" 
+                    onClick={() => setSelectedTags(prev => prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag])}
+                    className={`tag-chip ${selectedTags.includes(tag) ? 'active' : ''}`}
+                  >
+                    {tag}
+                  </button>
                 ))}
               </div>
             </div>
-            <Field label="What's on your mind" type="textarea" name="message" value={formData.message} onChange={handleInputChange} onBlur={() => handleBlur('message')} placeholder="A line or two — we'll reply within 48h." error={touched.message && errors.message} required />
-            <button type="submit" className="submit-btn" disabled={!isFormValid()} style={{ opacity: isFormValid() ? 1 : 0.7, cursor: isFormValid() ? 'pointer' : 'not-allowed' }}>
+            
+            <Field 
+              label="What's on your mind" 
+              type="textarea" 
+              name="message" 
+              value={formData.message} 
+              onChange={handleInputChange} 
+              onBlur={() => handleBlur('message')} 
+              placeholder="A line or two — we'll reply within 48h." 
+              error={touched.message && errors.message} 
+              required 
+            />
+            
+            <button 
+              type="submit" 
+              className="submit-btn" 
+              disabled={!isFormValid()} 
+              style={{ 
+                opacity: isFormValid() ? 1 : 0.7, 
+                cursor: isFormValid() ? 'pointer' : 'not-allowed' 
+              }}
+            >
               Send brief <Arrow />
             </button>
           </form>
@@ -165,7 +257,6 @@ function FooterCTA({ palette, onOpen }) {
           .contact-form { padding: 16px 12px !important; border-radius: 16px !important; }
         }
 
-        /* CSS Variables for consistency */
         :root {
           --accent: #1F6E7A;
           --accent-soft: rgba(31, 110, 122, 0.1);
