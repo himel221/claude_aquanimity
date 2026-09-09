@@ -434,6 +434,11 @@ function Institutes({ palette, onOpen }) {
             .institutes-header {
               margin-bottom: 24px !important;
             }
+
+            /* Keep font size 38.7px on mobile */
+            .institutes-title {
+              font-size: 38.7px !important;
+            }
           }
 
           /* Mobile Gallery styles */
