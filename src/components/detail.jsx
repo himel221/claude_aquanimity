@@ -324,6 +324,27 @@ function Footer() {
                   LinkedIn
                 </a>
               </li>
+              <li>
+                <a 
+                  href="https://www.instagram.com/aquanimitygroup?stkn=emdma2xpam5pdmdw&utm_source=qr" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{ 
+                    fontSize: 14, 
+                    color: 'White',
+                    textDecoration: 'none',
+                    fontFamily: "'Red Hat Display', sans-serif",
+                    fontWeight: 400,
+                    transition: 'color 0.2s ease',
+                    cursor: 'pointer',
+                    display: 'inline-block'
+                  }} 
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'White'}
+                >
+                  Instagram
+                </a>
+              </li>
             </ul>
           </div>
 

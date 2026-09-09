@@ -322,6 +322,7 @@ function Footer() {
           <div className="ftr-col-title">Connect</div>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
             <li><a href="https://www.linkedin.com/company/aquanimitygroup/about/" target="_blank" rel="noopener noreferrer" className="ftr-link">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/aquanimitygroup?stkn=emdma2xpam5pdmdw&utm_source=qr" target="_blank" rel="noopener noreferrer" className="ftr-link">Instagram</a></li>
           </ul>
         </div>
         <div>
