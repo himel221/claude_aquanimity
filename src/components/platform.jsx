@@ -137,7 +137,7 @@ function Platform({ palette, onOpen }) {
         .platform-wrap { max-width: 1400px; margin: 0 auto; padding: 0 32px; }
         .platform-label { margin-bottom: 10px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
         .platform-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center; }
-        .platform-heading { font-size: clamp(28px, 4vw, 56px); line-height: 1.15; letter-spacing: -0.03em; font-weight: 900; color: #0E1136; margin: 0; }
+        .platform-heading { font-size: clamp(30px, 3vw, 58px); line-height: 0.98; letter-spacing: -0.03em; font-weight: 900; color: #0E1136; margin: 0; }
         .platform-typing { font-size: 13px; letter-spacing: 0.08em; color: var(--accent); font-weight: 500; }
         .phases-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
         .phase-card {
@@ -163,7 +163,7 @@ function Platform({ palette, onOpen }) {
         @media (max-width: 768px) {
           .platform-section { padding: 28px 0 32px !important; }
           .platform-wrap { padding: 0 16px !important; }
-          .platform-heading { font-size: 24px !important; }
+          .platform-heading { font-size: clamp(28px, 8vw, 42px) !important; line-height: 1.04 !important; }
           .platform-typing { font-size: 11px !important; }
           .phases-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
           .phase-card { min-height: 150px !important; padding: 14px 10px !important; border-radius: 14px !important; }
@@ -174,7 +174,7 @@ function Platform({ palette, onOpen }) {
 
         @media (max-width: 480px) {
           .platform-section { padding: 24px 0 24px !important; }
-          .platform-heading { font-size: 38.7px !important; }
+          .platform-heading { font-size: clamp(24px, 9vw, 36px) !important; line-height: 1.06 !important; }
           .phases-grid { gap: 8px !important; }
           .phase-card { min-height: 130px !important; padding: 12px 10px !important; border-radius: 12px !important; }
           .phase-title { font-size: 13px !important; }
@@ -183,7 +183,7 @@ function Platform({ palette, onOpen }) {
 
         @media (max-width: 360px) {
           .platform-section { padding: 20px 0 20px !important; }
-          .platform-heading { font-size: 20px !important; }
+          .platform-heading { font-size: clamp(20px, 7vw, 28px) !important; line-height: 1.08 !important; }
           .phase-card { min-height: 120px !important; padding: 10px 8px !important; }
           .phase-title { font-size: 12px !important; }
           .phase-body { font-size: 9px !important; }

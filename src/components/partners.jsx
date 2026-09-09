@@ -254,7 +254,7 @@ function Partners({ palette, onOpen }) {
             border-radius: 50%;
             border: 1.5px solid rgba(0,0,0,0.15);
             background: transparent;
-            color: #0E1136;
+            color: white;
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
@@ -266,14 +266,14 @@ function Partners({ palette, onOpen }) {
           }
 
           .partners-mobile-arrow:active {
-            background: #0E1136;
-            color: white;
-            border-color: #0E1136;
+            background: white;
+            color: #0E1136;
+            border-color: white;
           }
 
           .partners-mobile-counter {
             font-size: 11px;
-            color: #999;
+            color: white;
             font-weight: 600;
             min-width: 32px;
             text-align: center;

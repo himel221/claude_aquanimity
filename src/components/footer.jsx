@@ -212,7 +212,7 @@ function FooterCTA({ palette, onOpen }) {
         .contact-wrap { max-width: 1400px; margin: 0 auto; padding: 0 32px; }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
         .contact-label { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: white; font-weight: 600; }
-        .contact-heading { font-size: clamp(32px, 6vw, 88px); line-height: 1; letter-spacing: -0.03em; font-weight: 900; color:white; margin: 0; }
+        .contact-heading { font-size: clamp(30px, 3vw, 58px); line-height: 0.98; letter-spacing: -0.03em; font-weight: 900; color:white; margin: 0; }
         .contact-desc { margin-top: 24px; font-size: 17px; color: white; line-height: 1.55; max-width: 480px; font-weight: 400; }
         .contact-form { background: white; padding: 32px; border: 1px solid var(--rule); border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
         .tags-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -233,7 +233,7 @@ function FooterCTA({ palette, onOpen }) {
         @media (max-width: 768px) {
           .contact-section { padding: 36px 0 0 !important; }
           .contact-wrap { padding: 0 16px !important; }
-          .contact-heading { font-size: 38.7px !important; }
+          .contact-heading { font-size: clamp(28px, 8vw, 42px) !important; line-height: 1.04 !important; }
           .contact-desc { font-size: 14px !important; margin-top: 16px !important; max-width: 100% !important; }
           .contact-label { font-size: 10px !important; margin-bottom: 10px !important; }
           .contact-form { padding: 24px 18px !important; border-radius: 20px !important; }
@@ -244,7 +244,7 @@ function FooterCTA({ palette, onOpen }) {
 
         @media (max-width: 480px) {
           .contact-section { padding: 28px 0 0 !important; }
-          .contact-heading { font-size: 38.7px !important; }
+          .contact-heading { font-size: clamp(24px, 9vw, 36px) !important; line-height: 1.06 !important; }
           .contact-desc { font-size: 13px !important; }
           .contact-form { padding: 20px 14px !important; border-radius: 18px !important; }
           .tag-chip { padding: 5px 10px !important; font-size: 10px !important; }
@@ -253,7 +253,7 @@ function FooterCTA({ palette, onOpen }) {
 
         @media (max-width: 360px) {
           .contact-section { padding: 24px 0 0 !important; }
-          .contact-heading { font-size: 22px !important; }
+          .contact-heading { font-size: clamp(20px, 7vw, 28px) !important; line-height: 1.08 !important; }
           .contact-form { padding: 16px 12px !important; border-radius: 16px !important; }
         }
 

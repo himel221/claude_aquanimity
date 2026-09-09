@@ -296,9 +296,9 @@ function Contact({ palette, onOpen }) {
         }
 
         .contact-heading {
-          font-size: clamp(36px, 5.5vw, 88px);
-          line-height: 1.05;
-          letter-spacing: -0.02em;
+          font-size: clamp(30px, 3vw, 58px);
+          line-height: 0.98;
+          letter-spacing: -0.03em;
           font-weight: 900;
           margin-bottom: 28px;
           color: white;
@@ -420,7 +420,8 @@ function Contact({ palette, onOpen }) {
           }
 
           .contact-heading {
-            font-size: 38.7px !important;
+            font-size: clamp(28px, 8vw, 42px) !important;
+            line-height: 1.04 !important;
             margin-bottom: 16px !important;
           }
 
@@ -477,7 +478,8 @@ function Contact({ palette, onOpen }) {
           }
 
           .contact-heading {
-            font-size: 38.7px !important;
+            font-size: clamp(24px, 9vw, 36px) !important;
+            line-height: 1.06 !important;
             margin-bottom: 12px !important;
           }
 
@@ -522,7 +524,8 @@ function Contact({ palette, onOpen }) {
           }
 
           .contact-heading {
-            font-size: 38.7px !important;
+            font-size: clamp(20px, 7vw, 28px) !important;
+            line-height: 1.08 !important;
           }
 
           .contact-form-card {

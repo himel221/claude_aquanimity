@@ -281,7 +281,7 @@ function Institutes({ palette, onOpen }) {
           overflow: 'hidden'
         }}
       >
-        <div className="wrap" style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(16px, 4vw, 32px)" }}>
+        <div className="wrap" style={{ maxWidth: 1400, margin: "0 auto", padding: "0 clamp(16px, 4vw, 32px)" }}>
 
           {/* Header */}
           <div className="reveal institutes-header" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 'clamp(16px, 3vw, 24px)', marginBottom: 'clamp(24px, 6vw, 48px)' }}>

@@ -261,9 +261,9 @@ function Ventures({ palette, onOpen }) {
         }
 
         .ventures-heading {
-          font-size: clamp(36px, 5vw, 64px);
-          line-height: 1.02;
-          letter-spacing: -0.025em;
+          font-size: clamp(30px, 3vw, 58px);
+          line-height: 0.98;
+          letter-spacing: -0.03em;
           color: var(--paper);
           max-width: 760px;
           font-weight: 900;
@@ -508,7 +508,8 @@ function Ventures({ palette, onOpen }) {
           }
 
           .ventures-heading {
-            font-size: 38.7px !important;
+            font-size: clamp(28px, 8vw, 42px) !important;
+            line-height: 1.04 !important;
           }
         }
 
@@ -560,7 +561,8 @@ function Ventures({ palette, onOpen }) {
           }
 
           .ventures-heading {
-            font-size: 38.7px !important;
+            font-size: clamp(24px, 9vw, 36px) !important;
+            line-height: 1.06 !important;
           }
         }
 
@@ -583,7 +585,8 @@ function Ventures({ palette, onOpen }) {
           }
 
           .ventures-heading {
-            font-size: 20px !important;
+            font-size: clamp(20px, 7vw, 28px) !important;
+            line-height: 1.08 !important;
           }
 
           .venture-tab {
