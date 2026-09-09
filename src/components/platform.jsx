@@ -133,7 +133,7 @@ function Platform({ palette, onOpen }) {
         .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
         .reveal.in { opacity: 1; transform: translateY(0); }
 
-        .platform-section { padding: 28px 0 28px; background: var(--paper); font-family: 'Red Hat Display', sans-serif; }
+        .platform-section { padding: 28px 0 28px; background: white; font-family: 'Red Hat Display', sans-serif; }
         .platform-wrap { max-width: 1400px; margin: 0 auto; padding: 0 32px; }
         .platform-label { margin-bottom: 10px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
         .platform-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center; }

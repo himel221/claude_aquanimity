@@ -276,7 +276,7 @@ function Institutes({ palette, onOpen }) {
         style={{
           paddingTop: 'clamp(36px, 8vw, 80px)',
           paddingBottom: 'clamp(36px, 8vw, 80px)',
-          background: "#FAF7F0",
+          background: "white",
           fontFamily: "'Red Hat Display', 'Red Hat Display Variable', sans-serif",
           overflow: 'hidden'
         }}

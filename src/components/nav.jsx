@@ -242,7 +242,7 @@ function Nav({ onNavigate, route }) {
         .nav.scrolled {
           backdrop-filter: blur(16px) saturate(180%);
           -webkit-backdrop-filter: blur(16px) saturate(180%);
-          background: rgba(232, 227, 217, 0.92);
+          background:white;
           border-bottom: 1px solid var(--line);
         }
 
@@ -413,7 +413,7 @@ function Nav({ onNavigate, route }) {
           width: 85%;
           max-width: 480px;
           height: 100vh;
-          background: var(--bg);
+          background: white;
           padding: 80px 32px 32px;
           transition: right 0.7s cubic-bezier(0.22, 1, 0.36, 1);
           z-index: 999;
@@ -665,7 +665,7 @@ function Nav({ onNavigate, route }) {
           }
 
           .nav.scrolled {
-            background: rgba(232, 227, 217, 0.95);
+            background: white;
           }
 
           .mobile-menu {

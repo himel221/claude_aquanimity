@@ -189,6 +189,7 @@ const useReveal = () => {
 };
 
 // Footer Component
+// Footer Component - Updated to match FooterCTA design
 function Footer() {
   const handleLinkClick = (e, item) => {
     e.preventDefault();
@@ -220,12 +221,12 @@ function Footer() {
       marginTop: 80, 
       paddingTop: 48, 
       paddingBottom: 40, 
-      borderTop: '1px solid var(--rule)', 
-      background: '#FAF7F0',
+      borderTop: '1px solid white', 
+      background: '#181A43',
       fontFamily: "'Red Hat Display', sans-serif"
     }}>
       <div className="wrap" style={{ maxWidth: 1400, margin: "0 auto", padding: "0 32px" }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr', gap: 32 }} className="ftr-grid">
+        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 32 }} className="ftr-grid">
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
               <img 
@@ -234,20 +235,21 @@ function Footer() {
                 style={{ 
                   height: '40px', 
                   width: 'auto',
-                  objectFit: 'contain'
+                  objectFit: 'contain',
+                  filter: 'brightness(0) invert(1)'
                 }}
                 onError={(e) => {
                   e.target.src = 'https://via.placeholder.com/150x40?text=AQUANIMITY';
                 }}
               />
             </div>
-           <p style={{ fontSize: 14, color: '#0E1136', maxWidth: 320, lineHeight: 1.55, fontFamily: "'Red Hat Display', sans-serif", fontWeight: 400,textAlign:'justify' }}>
-            Discovering, translating and commercializing biosciences for Bangladesh and beyond.
-          </p>
+            <p style={{ fontSize: 14, color: 'white', maxWidth: 320, lineHeight: 1.55, fontFamily: "'Red Hat Display', sans-serif", fontWeight: 400, textAlign: 'justify' }}>
+              Discovering, translating and commercializing biosciences for Bangladesh and beyond.
+            </p>
           </div>
           
           <div>
-            <div className="label" style={{ marginBottom: 14, fontSize: 11, letterSpacing: '0.2em', color: 'var(--accent)', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 600 }}>
+            <div className="label" style={{ marginBottom: 14, fontSize: 11, letterSpacing: '0.2em', color: 'white', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900 }}>
               COMPANY
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: 10 }}>
@@ -257,7 +259,7 @@ function Footer() {
                     onClick={(e) => handleLinkClick(e, item)}
                     style={{ 
                       fontSize: 14, 
-                      color: '#0E1136',
+                      color: 'white',
                       background: 'none',
                       border: 'none',
                       cursor: 'pointer',
@@ -266,8 +268,8 @@ function Footer() {
                       fontWeight: 400,
                       transition: 'color 0.2s ease'
                     }} 
-                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
-                    onMouseLeave={(e) => e.currentTarget.style.color = '#0E1136'}
+                    onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
                   >
                     {item}
                   </button>
@@ -277,7 +279,7 @@ function Footer() {
           </div>
 
           <div>
-            <div className="label" style={{ marginBottom: 14, fontSize: 11, letterSpacing: '0.2em', color: 'var(--accent)', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 600 }}>
+            <div className="label" style={{ marginBottom: 14, fontSize: 11, letterSpacing: '0.2em', color: 'white', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900 }}>
               CONNECT
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: 10 }}>
@@ -286,7 +288,7 @@ function Footer() {
                   onClick={(e) => handleLinkClick(e, 'Contact')}
                   style={{ 
                     fontSize: 14, 
-                    color: '#0E1136',
+                    color: 'White',
                     background: 'none',
                     border: 'none',
                     cursor: 'pointer',
@@ -295,8 +297,8 @@ function Footer() {
                     fontWeight: 400,
                     transition: 'color 0.2s ease'
                   }} 
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = '#0E1136'}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                 >
                   Contact
                 </button>
@@ -308,7 +310,7 @@ function Footer() {
                   rel="noopener noreferrer"
                   style={{ 
                     fontSize: 14, 
-                    color: '#0E1136',
+                    color: 'White',
                     textDecoration: 'none',
                     fontFamily: "'Red Hat Display', sans-serif",
                     fontWeight: 400,
@@ -316,8 +318,8 @@ function Footer() {
                     cursor: 'pointer',
                     display: 'inline-block'
                   }} 
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = '#0E1136'}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'White'}
                 >
                   LinkedIn
                 </a>
@@ -326,18 +328,18 @@ function Footer() {
           </div>
 
           <div>
-            <div className="label" style={{ marginBottom: 14, fontSize: 11, letterSpacing: '0.2em', color: 'var(--accent)', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 600 }}>
+            <div className="label" style={{ marginBottom: 14, fontSize: 11, letterSpacing: '0.2em', color: 'white', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900 }}>
               CONTACT
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: 10 }}>
               <li>
-                <span style={{ fontSize: 14, color: '#0E1136', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 400 }}>
-                  Address: Plot 68-71, Block K,<br /> Road 4 Rupnagar Rd, Dhaka 1216
+                <span style={{ fontSize: 14, color: 'white', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 400 }}>
+                  Plot 68-71, Block K, Road 4<br /> Rupnagar Rd, Dhaka 1216
                 </span>
               </li>
               <li>
-                <span style={{ fontSize: 14, color: '#0E1136', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 400 }}>
-                  Phone: +8801310346592
+                <span style={{ fontSize: 14, color: 'white', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 400 }}>
+                  +8801310346592
                 </span>
               </li>
               <li>
@@ -346,7 +348,7 @@ function Footer() {
                   onClick={handleEmailClick}
                   style={{ 
                     fontSize: 14, 
-                    color: '#0E1136',
+                    color: 'rgba(255,255,255,0.8)',
                     textDecoration: 'none',
                     fontFamily: "'Red Hat Display', sans-serif",
                     fontWeight: 400,
@@ -354,8 +356,8 @@ function Footer() {
                     cursor: 'pointer',
                     display: 'inline-block'
                   }} 
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = '#0E1136'}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                 >
                   contact@aquanimitygroup.com
                 </a>
@@ -367,17 +369,17 @@ function Footer() {
         <div style={{ 
           marginTop: 64, 
           paddingTop: 24, 
-          borderTop: '1px solid var(--rule)', 
+          borderTop: '1px solid white', 
           display: 'flex', 
           flexWrap: 'wrap', 
           gap: 16, 
           justifyContent: 'space-between', 
           alignItems: 'center' 
         }}>
-          <div className="mono" style={{ fontSize: 11, letterSpacing: '0.18em', color: 'var(--muted)', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 500 }}>
+          <div className="mono" style={{ fontSize: 11, letterSpacing: '0.18em', color: 'white', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 500 }}>
             © {new Date().getFullYear()} AQUANIMITY GROUP. ALL RIGHTS RESERVED.
           </div>
-          <div className="mono" style={{ fontSize: 11, letterSpacing: '0.18em', color: 'var(--muted)', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 500 }}>
+          <div className="mono" style={{ fontSize: 11, letterSpacing: '0.18em', color: 'white', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 500 }}>
             DHAKA, BANGLADESH
           </div>
         </div>
@@ -387,6 +389,7 @@ function Footer() {
 }
 
 // Back Button Component
+// Back Button Component
 const BackButton = ({ onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
   
@@ -394,7 +397,7 @@ const BackButton = ({ onClick }) => {
     <div className="detail-back" style={{
       position: 'relative',
       zIndex: 10,
-      background: '#FAF7F0',
+      background: 'white',
       borderBottom: '1px solid var(--rule)',
       paddingTop: '92px'
     }}>
@@ -407,11 +410,11 @@ const BackButton = ({ onClick }) => {
             display: 'inline-flex',
             alignItems: 'center',
             gap: isHovered ? '10px' : '6px',
-            background: '#ECE5D6',
+            background: '#181A43',
             border: '1px solid var(--rule)',
             borderRadius: 40,
             padding: '5px 8px',
-            color: '#0E1136',
+            color: 'white',
             fontSize: 14,
             fontWeight: 500,
             cursor: 'pointer',
@@ -628,7 +631,7 @@ Each institute is not merely a research division. It is a venture-building engin
       }}
       style={{
         padding: '12px 32px',
-        background: 'rgb(250, 247, 240)',
+        background: 'white',
         color: '#0E1136',
         border: 'none',
         borderRadius: 40,
@@ -642,12 +645,12 @@ Each institute is not merely a research division. It is a venture-building engin
         gap: 8
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.background = '#ffffff';
+        e.currentTarget.style.background = 'rgb(95, 175, 190)';
         e.currentTarget.style.transform = 'scale(1.03)';
         e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.2)';
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.background = 'rgb(250, 247, 240)';
+        e.currentTarget.style.background = 'white';
         e.currentTarget.style.transform = 'scale(1)';
         e.currentTarget.style.boxShadow = 'none';
       }}
@@ -839,399 +842,399 @@ function InstituteDetail({ it, data, palette }) {
   const instituteAssociates = researchers[it.n + "_associates"] || [];
 
   // Render researcher card - UPDATED for associates to be clickable
-  const renderResearcherCard = (researcher, idx, isAssociate = false) => {
-    const hasDetails = researcher.detailedBio || researcher.education || researcher.achievement;
-    const isClickable = !isAssociate || (isAssociate && hasDetails);
-    
-    return (
-      <div 
-        key={idx}
-        onClick={() => {
-          if (isClickable && hasDetails) {
-            setSelectedMember(researcher);
-          }
-        }}
-        style={{ 
-          textAlign: 'center',
-          padding: isAssociate ? '16px 12px' : '16px 12px',
-          background: isAssociate ? 'rgba(31,110,122,0.05)' : 'var(--bone)',
-          borderRadius: 16,
-          transition: 'all 0.3s ease',
-          border: isAssociate ? '1px solid rgba(31,110,122,0.15)' : '1px solid transparent',
-          cursor: isClickable && hasDetails ? 'pointer' : 'default',
-          width: '100%',
-          maxWidth: '100%',
-          margin: '0 auto',
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          boxShadow: isAssociate ? '0 2px 8px rgba(0,0,0,0.04)' : 'none'
-        }}
-        onMouseEnter={(e) => {
-          if (isClickable && hasDetails) {
-            e.currentTarget.style.transform = 'translateY(-4px)';
-            e.currentTarget.style.borderColor = 'var(--accent)';
-            e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)';
-          }
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'translateY(0)';
-          e.currentTarget.style.borderColor = isAssociate ? 'rgba(31,110,122,0.15)' : 'transparent';
-          e.currentTarget.style.boxShadow = isAssociate ? '0 2px 8px rgba(0,0,0,0.04)' : 'none';
-        }}
-      >
-        <div style={{ 
-          width: isAssociate ? 80 : 90,
-          height: isAssociate ? 80 : 90,
-          borderRadius: '50%', 
-          overflow: 'hidden', 
-          margin: '0 auto 10px',
-          border: isAssociate ? '3px solid var(--accent)' : '3px solid var(--accent)',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-          flexShrink: 0,
-          position: 'relative',
-          backgroundColor: '#f0f0f0'
-        }}>
-          <img 
-            src={researcher.img} 
-            alt={researcher.name} 
-            style={{ 
-              width: '100%', 
-              height: '100%', 
-              objectFit: 'cover',
-              display: 'block',
-              transition: 'transform 0.3s ease'
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-            onError={(e) => {
-              e.target.src = 'https://via.placeholder.com/100x100?text=' + researcher.name.charAt(0);
-              e.target.style.objectFit = 'contain';
-            }}
-          />
-        </div>
-        <div style={{ 
-          fontWeight: 600, 
-          fontSize: isAssociate ? 14 : 15, 
-          color: '#0E1136',
-          lineHeight: 1.3,
-          marginTop: 4
-        }}>
-          {researcher.name}
-        </div>
-        <div style={{ 
-          fontSize: isAssociate ? 11 : 12, 
-          color: isAssociate ? 'var(--accent)' : 'var(--accent)', 
-          marginTop: 2, 
-          fontWeight: 500,
-          lineHeight: 1.4,
-          padding: '0 4px',
-          whiteSpace: 'pre-line'
-        }}>
-          {researcher.title}
-        </div>
-        {isAssociate && hasDetails && (
-          <div style={{ 
-            fontSize: 10, 
-            color: '#0E1136', 
-            marginTop: 6,
-            fontStyle: 'italic',
-            opacity: 0.5
-          }}>
-            Click for details
-          </div>
-        )}
+// Render researcher card - UPDATED for associates to be clickable
+const renderResearcherCard = (researcher, idx, isAssociate = false) => {
+  const hasDetails = researcher.detailedBio || researcher.education || researcher.achievement;
+  const isClickable = !isAssociate || (isAssociate && hasDetails);
+  
+  return (
+    <div 
+      key={idx}
+      onClick={() => {
+        if (isClickable && hasDetails) {
+          setSelectedMember(researcher);
+        }
+      }}
+      style={{ 
+        textAlign: 'center',
+        padding: isAssociate ? '16px 12px' : '16px 12px',
+        background: '#181A43',
+        borderRadius: 16,
+        transition: 'all 0.3s ease',
+        border: '1px solid rgba(255,255,255,0.1)',
+        cursor: isClickable && hasDetails ? 'pointer' : 'default',
+        width: '100%',
+        maxWidth: '100%',
+        margin: '0 auto',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+      }}
+      onMouseEnter={(e) => {
+        if (isClickable && hasDetails) {
+          e.currentTarget.style.transform = 'translateY(-4px)';
+          e.currentTarget.style.borderColor = '#1F6E7A';
+          e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.15)';
+        }
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'translateY(0)';
+        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+        e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
+      }}
+    >
+      <div style={{ 
+        width: isAssociate ? 80 : 90,
+        height: isAssociate ? 80 : 90,
+        borderRadius: '50%', 
+        overflow: 'hidden', 
+        margin: '0 auto 10px',
+        border: '3px solid #1F6E7A',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+        flexShrink: 0,
+        position: 'relative',
+        backgroundColor: '#f0f0f0'
+      }}>
+        <img 
+          src={researcher.img} 
+          alt={researcher.name} 
+          style={{ 
+            width: '100%', 
+            height: '100%', 
+            objectFit: 'cover',
+            display: 'block',
+            transition: 'transform 0.3s ease'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          onError={(e) => {
+            e.target.src = 'https://via.placeholder.com/100x100?text=' + researcher.name.charAt(0);
+            e.target.style.objectFit = 'contain';
+          }}
+        />
       </div>
-    );
+      <div style={{ 
+        fontWeight: 600, 
+        fontSize: isAssociate ? 14 : 15, 
+        color: 'white',
+        lineHeight: 1.3,
+        marginTop: 4
+      }}>
+        {researcher.name}
+      </div>
+      <div style={{ 
+        fontSize: isAssociate ? 11 : 12, 
+        color: 'rgba(255,255,255,0.8)', 
+        marginTop: 2, 
+        fontWeight: 500,
+        lineHeight: 1.4,
+        padding: '0 4px',
+        whiteSpace: 'pre-line'
+      }}>
+        {researcher.title}
+      </div>
+      {isAssociate && hasDetails && (
+        <div style={{ 
+          fontSize: 10, 
+          color: 'rgba(255,255,255,0.5)', 
+          marginTop: 6,
+          fontStyle: 'italic'
+        }}>
+          Click for details
+        </div>
+      )}
+    </div>
+  );
+};
+
+const renderPlaceholder = (type) => (
+  <div style={{ 
+    textAlign: 'center',
+    padding: '30px 20px',
+    background: '#181A43',
+    borderRadius: 16,
+    border: '2px dashed rgba(255,255,255,0.2)',
+    minHeight: '150px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%'
+  }}>
+    <div style={{ 
+      fontSize: 32, 
+      color: 'rgba(255,255,255,0.3)',
+      marginBottom: 12
+    }}>
+      {type === 'researcher' ? '🔬' : '🧪'}
+    </div>
+    <div style={{ 
+      fontSize: 16, 
+      fontWeight: 600, 
+      color: 'white',
+      marginBottom: 6
+    }}>
+      {type === 'researcher' ? 'Researchers Coming Soon' : 'Research Associates Coming Soon'}
+    </div>
+    <div style={{ 
+      fontSize: 13, 
+      color: 'rgba(255,255,255,0.6)',
+      maxWidth: 350
+    }}>
+      We're currently building our team. Check back for updates.
+    </div>
+  </div>
+);
+
+  // Member Details Inline Component - UPDATED for better mobile responsiveness
+// Member Details Inline Component - UPDATED with white background and dark text
+// Member Details Component (Inline) - Updated to match Institute design
+const MemberDetailsInline = ({ member, onClose }) => {
+  const detailsRef = useRef(null);
+
+  useEffect(() => {
+    if (detailsRef.current) {
+      const yOffset = -80;
+      const element = detailsRef.current;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }, [member]);
+
+  const handleClose = () => {
+    onClose();
+    setTimeout(() => {
+      const filters = document.querySelector('.team-filters');
+      if (filters) {
+        const y = filters.getBoundingClientRect().top + window.pageYOffset - 100;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        return;
+      }
+      const teamSection = document.getElementById('team');
+      if (teamSection) {
+        const y = teamSection.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 100);
   };
 
-  const renderPlaceholder = (type) => (
-    <div style={{ 
-      textAlign: 'center',
-      padding: '30px 20px',
-      background: 'var(--bone)',
-      borderRadius: 16,
-      border: '2px dashed var(--rule)',
-      minHeight: '150px',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: '100%'
-    }}>
-      <div style={{ 
-        fontSize: 32, 
-        color: '#0E1136',
-        marginBottom: 12,
-        opacity: 0.3
+  return (
+    <div 
+      ref={detailsRef}
+      id="member-details"
+      className="member-details-wrapper"
+      style={{
+        marginTop: '48px',
+        marginBottom: '48px',
+        background: 'white',
+        borderRadius: '32px',
+        overflow: 'hidden',
+        animation: 'fadeInUp 0.5s ease',
+        fontFamily: "'Red Hat Display', sans-serif",
+        boxShadow: '0 4px 20px rgba(0,0,0,0.08)'
+      }}
+    >
+      <div className="mdi-grid" style={{
+        display: 'grid',
+        gridTemplateColumns: '0.8fr 1.2fr',
+        gap: 0,
+        minHeight: '500px'
       }}>
-        {type === 'researcher' ? '🔬' : '🧪'}
-      </div>
-      <div style={{ 
-        fontSize: 16, 
-        fontWeight: 600, 
-        color: '#0E1136',
-        marginBottom: 6
-      }}>
-        {type === 'researcher' ? 'Researchers Coming Soon' : 'Research Associates Coming Soon'}
-      </div>
-      <div style={{ 
-        fontSize: 13, 
-        color: '#0E1136',
-        maxWidth: 350
-      }}>
-        We're currently building our team. Check back for updates.
+        <div className="mdi-photo" style={{
+          background: '#181A43',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '40px'
+        }}>
+          <div style={{
+            width: '100%',
+            maxWidth: '280px',
+            borderRadius: '20px',
+            overflow: 'hidden',
+            boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+            border: '3px solid white',
+            backgroundColor: '#f0f0f0'
+          }}>
+            <img
+              src={member.img}
+              alt={member.name}
+              style={{ width: '100%', height: 'auto', display: 'block' }}
+              onError={(e) => {
+                e.target.src = 'https://via.placeholder.com/280x280/181A43/FFFFFF?text=Team';
+              }}
+            />
+          </div>
+        </div>
+
+        <div className="mdi-content" style={{ 
+          padding: '40px', 
+          overflowY: 'auto', 
+          maxHeight: '600px',
+          background: 'white'
+        }}>
+          <div style={{ 
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            alignItems: 'flex-start', 
+            marginBottom: '20px'
+          }}>
+            <div>
+              <div style={{
+                fontSize: '12px',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: '#1F6E7A',
+                fontWeight: 600,
+                marginBottom: '8px',
+                whiteSpace: 'pre-line',
+                lineHeight: 1.3,
+                fontFamily: "'Red Hat Display', sans-serif"
+              }}>
+                {member.title}
+              </div>
+              <h2 style={{
+                fontSize: '32px',
+                fontWeight: 700,
+                color: '#181A43',
+                marginBottom: '12px',
+                letterSpacing: '-0.02em',
+                fontFamily: "'Red Hat Display', sans-serif"
+              }}>
+                {member.name}
+              </h2>
+              <div style={{
+                width: '50px',
+                height: '3px',
+                background: '#181A43',
+                marginBottom: '24px'
+              }} />
+            </div>
+            <button
+              onClick={handleClose}
+              style={{
+                width: '36px',
+                height: '36px',
+                borderRadius: '50%',
+                background: '#F2EDE3',
+                border: '1px solid #D8D0BE',
+                cursor: 'pointer',
+                fontSize: '18px',
+                transition: 'all 0.3s ease',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#181A43',
+                fontFamily: "'Red Hat Display', sans-serif",
+                flexShrink: 0
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.background = '#E8E0D0'}
+              onMouseLeave={(e) => e.currentTarget.style.background = '#F2EDE3'}
+            >
+              ✕
+            </button>
+          </div>
+
+          {member.achievement && (
+            <div style={{ marginBottom: '24px' }}>
+              <h3 style={{
+                fontSize: '16px',
+                fontWeight: 600,
+                color: '#181A43',
+                marginBottom: '10px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                fontFamily: "'Red Hat Display', sans-serif"
+              }}>
+                <span style={{ fontSize: '20px' }}>🏆</span> Key Achievement
+              </h3>
+              <div style={{
+                background: 'linear-gradient(135deg, rgba(24,26,67,0.05) 0%, rgba(31,110,122,0.05) 100%)',
+                padding: '14px',
+                borderRadius: '14px',
+                fontSize: '14px',
+                fontWeight: 500,
+                color: '#181A43',
+                lineHeight: 1.5,
+                borderLeft: '3px solid #1F6E7A',
+                fontFamily: "'Red Hat Display', sans-serif"
+              }}>
+                {member.achievement}
+              </div>
+            </div>
+          )}
+
+          {member.detailedBio && (
+            <div style={{ marginBottom: '24px' }}>
+              <h3 style={{
+                fontSize: '16px',
+                fontWeight: 600,
+                color: '#181A43',
+                marginBottom: '10px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                fontFamily: "'Red Hat Display', sans-serif"
+              }}>
+                <span style={{ fontSize: '20px' }}>📋</span> Biography
+              </h3>
+              <div style={{
+                fontSize: '14px',
+                lineHeight: 1.6,
+                color: '#181A43',
+                textAlign: 'justify',
+                fontFamily: "'Red Hat Display', sans-serif",
+                fontWeight: 400
+              }}>
+                {member.detailedBio.split('\n\n').map((paragraph, idx) => (
+                  <p key={idx} style={{ 
+                    marginBottom: '12px',
+                    color: '#181A43'
+                  }}>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {member.education && (
+            <div style={{ marginBottom: '24px' }}>
+              <h3 style={{
+                fontSize: '16px',
+                fontWeight: 600,
+                color: '#181A43',
+                marginBottom: '10px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                fontFamily: "'Red Hat Display', sans-serif"
+              }}>
+                <span style={{ fontSize: '20px' }}>🎓</span> Education
+              </h3>
+              <div style={{
+                background: '#181A43',
+                padding: '14px',
+                borderRadius: '14px',
+                fontSize: '13px',
+                color: 'white',
+                lineHeight: 1.5,
+                textAlign: 'justify',
+                fontFamily: "'Red Hat Display', sans-serif",
+                fontWeight: 400
+              }}>
+                {member.education}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
-
-  // Member Details Inline Component - UPDATED for better mobile responsiveness
-  const MemberDetailsInline = ({ member, onClose }) => {
-    const detailsRef = useRef(null);
-
-    useEffect(() => {
-      if (detailsRef.current) {
-        const yOffset = -80;
-        const element = detailsRef.current;
-        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({
-          top: y,
-          behavior: 'smooth'
-        });
-      }
-    }, [member]);
-
-    const handleClose = () => {
-      onClose();
-      setTimeout(() => {
-        const principalSection = document.querySelector('.id-principal-section');
-        if (principalSection) {
-          const y = principalSection.getBoundingClientRect().top + window.pageYOffset - 100;
-          window.scrollTo({ top: y, behavior: 'smooth' });
-          return;
-        }
-        const researchersSection = document.querySelector('.id-researchers-section');
-        if (researchersSection) {
-          const y = researchersSection.getBoundingClientRect().top + window.pageYOffset - 100;
-          window.scrollTo({ top: y, behavior: 'smooth' });
-        }
-      }, 100);
-    };
-
-    return (
-      <div 
-        ref={detailsRef}
-        className="member-details-wrapper"
-        style={{
-          marginTop: '48px',
-          marginBottom: '48px',
-          background: '#F2EDE3',
-          borderRadius: '32px',
-          overflow: 'hidden',
-          animation: 'fadeInUp 0.5s ease',
-          fontFamily: "'Red Hat Display', sans-serif"
-        }}
-      >
-        <div className="mdi-grid" style={{
-          display: 'grid',
-          gridTemplateColumns: '0.8fr 1.2fr',
-          gap: 0,
-          minHeight: '500px'
-        }}>
-          <div className="mdi-photo" style={{
-            background: 'linear-gradient(135deg, #1F6E7A 0%, #4FA0AC 100%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '40px'
-          }}>
-            <div style={{
-              width: '100%',
-              maxWidth: '280px',
-              borderRadius: '20px',
-              overflow: 'hidden',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
-              border: '3px solid white',
-              backgroundColor: '#f0f0f0'
-            }}>
-              <img
-                src={member.img}
-                alt={member.name}
-                style={{ width: '100%', height: 'auto', display: 'block' }}
-                onError={(e) => {
-                  e.target.src = 'https://via.placeholder.com/280x280/1F6E7A/FFFFFF?text=Team';
-                }}
-              />
-            </div>
-          </div>
-
-          <div className="mdi-content" style={{ 
-            padding: '40px', 
-            overflowY: 'auto', 
-            maxHeight: '600px',
-            background: '#F2EDE3'
-          }}>
-            <div style={{ 
-              display: 'flex', 
-              justifyContent: 'space-between', 
-              alignItems: 'flex-start', 
-              marginBottom: '20px'
-            }}>
-              <div>
-                <div style={{
-                  fontSize: '12px',
-                  letterSpacing: '0.2em',
-                  textTransform: 'uppercase',
-                  color: '#1F6E7A',
-                  fontWeight: 600,
-                  marginBottom: '8px',
-                  whiteSpace: 'pre-line',
-                  lineHeight: 1.3,
-                  fontFamily: "'Red Hat Display', sans-serif"
-                }}>
-                  {member.title}
-                </div>
-                <h2 style={{
-                  fontSize: '32px',
-                  fontWeight: 700,
-                  color: '#0E1136',
-                  marginBottom: '12px',
-                  letterSpacing: '-0.02em',
-                  fontFamily: "'Red Hat Display', sans-serif"
-                }}>
-                  {member.name}
-                </h2>
-                <div style={{
-                  width: '50px',
-                  height: '3px',
-                  background: '#1F6E7A',
-                  marginBottom: '24px'
-                }} />
-              </div>
-              <button
-                onClick={handleClose}
-                style={{
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: '50%',
-                  background: '#FAF7F0',
-                  border: '1px solid #D8D0BE',
-                  cursor: 'pointer',
-                  fontSize: '18px',
-                  transition: 'all 0.3s ease',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#0E1136',
-                  fontFamily: "'Red Hat Display', sans-serif",
-                  flexShrink: 0
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.background = '#BFD4D5'}
-                onMouseLeave={(e) => e.currentTarget.style.background = '#FAF7F0'}
-              >
-                ✕
-              </button>
-            </div>
-
-            {member.achievement && (
-              <div style={{ marginBottom: '24px' }}>
-                <h3 style={{
-                  fontSize: '16px',
-                  fontWeight: 600,
-                  color: '#0E1136',
-                  marginBottom: '10px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  fontFamily: "'Red Hat Display', sans-serif"
-                }}>
-                  <span style={{ fontSize: '20px' }}>🏆</span> Key Achievement
-                </h3>
-                <div style={{
-                  background: 'linear-gradient(135deg, rgba(255,40,0,0.05) 0%, rgba(31,110,122,0.05) 100%)',
-                  padding: '14px',
-                  borderRadius: '14px',
-                  fontSize: '14px',
-                  fontWeight: 500,
-                  color: '#0E1136',
-                  lineHeight: 1.5,
-                  borderLeft: '3px solid #FF2800',
-                  fontFamily: "'Red Hat Display', sans-serif"
-                }}>
-                  {member.achievement}
-                </div>
-              </div>
-            )}
-
-            {member.detailedBio && (
-              <div style={{ marginBottom: '24px' }}>
-                <h3 style={{
-                  fontSize: '16px',
-                  fontWeight: 600,
-                  color: '#0E1136',
-                  marginBottom: '10px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  fontFamily: "'Red Hat Display', sans-serif"
-                }}>
-                  <span style={{ fontSize: '20px' }}>📋</span> Biography
-                </h3>
-                <div style={{
-                  fontSize: '14px',
-                  lineHeight: 1.6,
-                  color: '#0E1136',
-                  textAlign: 'justify',
-                  fontFamily: "'Red Hat Display', sans-serif",
-                  fontWeight: 400
-                }}>
-                  {member.detailedBio.split('\n\n').map((paragraph, idx) => (
-                    <p key={idx} style={{ 
-                      marginBottom: '12px',
-                      color: '#0E1136'
-                    }}>
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {member.education && (
-              <div style={{ marginBottom: '24px' }}>
-                <h3 style={{
-                  fontSize: '16px',
-                  fontWeight: 600,
-                  color: '#0E1136',
-                  marginBottom: '10px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  fontFamily: "'Red Hat Display', sans-serif"
-                }}>
-                  <span style={{ fontSize: '20px' }}>🎓</span> Education
-                </h3>
-                <div style={{
-                  background: '#FAF7F0',
-                  padding: '14px',
-                  borderRadius: '14px',
-                  fontSize: '13px',
-                  color: '#0E1136',
-                  lineHeight: 1.5,
-                  textAlign: 'justify',
-                  fontFamily: "'Red Hat Display', sans-serif",
-                  fontWeight: 400
-                }}>
-                  {member.education}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    );
-  };
+};
 
   return (
     <div className="institute-detail-wrapper">
@@ -1496,7 +1499,7 @@ function InstituteDetail({ it, data, palette }) {
         {/* CTA Section */}
         <div className="id-collab-cta" style={{
           marginTop: '70px',
-          background: '#F2EDE3',
+          background: '#181a43',
           borderRadius: '20px',
           padding: 'clamp(32px, 4vw, 40px)',
           textAlign: 'center'
@@ -1505,19 +1508,19 @@ function InstituteDetail({ it, data, palette }) {
             fontSize: 'clamp(20px, 1.8vw, 24px)',
             fontWeight: 500,
             marginBottom: '14px',
-            color: '#0E1136',
+            color: 'white',
             fontFamily: "'Red Hat Display', sans-serif"
           }}>
             Interested in <span className="serif" style={{
               fontStyle: 'italic',
               color: '#1F6E7A',
-              fontWeight: 400,
+              fontWeight: 500,
               fontFamily: "Georgia, 'Times New Roman', serif"
             }}>collaborating</span>?
           </h4>
           <p className="id-cta-text" style={{
             fontSize: 'clamp(13px, 1.2vw, 14.5px)',
-            color: '#0E1136',
+            color: 'white',
             marginBottom: '22px',
             maxWidth: '450px',
             marginLeft: 'auto',
@@ -1530,8 +1533,8 @@ function InstituteDetail({ it, data, palette }) {
             onClick={() => window.dispatchEvent(new CustomEvent('aq-route', { detail: 'contact' }))}
             className="id-cta-button" style={{
               padding: '11px 30px',
-              background: '#0E1136',
-              color: 'white',
+              background: 'white',
+              color: '#181a43',
               border: 'none',
               borderRadius: '999px',
               fontSize: '13.5px',
@@ -1541,11 +1544,13 @@ function InstituteDetail({ it, data, palette }) {
               fontFamily: "'Red Hat Display', sans-serif"
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = '#1a2444';
+              e.currentTarget.style.background = '#1F6E7A';
+               e.currentTarget.style.color = 'white';
               e.currentTarget.style.transform = 'scale(1.02)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = '#0E1136';
+              e.currentTarget.style.background = 'white';
+              e.currentTarget.style.color = '#181a43';
               e.currentTarget.style.transform = 'scale(1)';
             }}
           >
@@ -1745,6 +1750,8 @@ function InstituteDetail({ it, data, palette }) {
             transform: translateY(0);
           }
         }
+
+        
       `}</style>
     </div>
   );
@@ -1941,6 +1948,7 @@ function VentureDetail({ v, data, palette }) {
 }
 
 // ===== DETAIL PAGE =====
+// ===== DETAIL PAGE =====
 function DetailPage({ route, onClose, palette }) {
   const data = appData;
   const ref = useReveal();
@@ -1988,9 +1996,9 @@ function DetailPage({ route, onClose, palette }) {
   }
 
   return (
-    <div ref={ref} style={{ minHeight: '100vh', background: '#FAF7F0' }}>
+    <div ref={ref} style={{ minHeight: '100vh', background: 'white' }}>
       <BackButton onClick={onClose} />
-      <div style={{ background: '#ECE5D6' }}>
+      <div style={{ background: 'white' }}>
         {view}
       </div>
       <Footer />

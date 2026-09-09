@@ -140,7 +140,7 @@ function Contact({ palette, onOpen }) {
           <div className="contact-left">
             <div className="contact-label">§ 06 — Partner with Us</div>
             <h2 className="contact-heading">
-              Let's <span className="serif" style={{ fontStyle: 'italic', color: '#2a7a7a', fontWeight: 400, fontFamily: "'Times New Roman', Georgia, serif" }}>engineer</span>
+              Let's <span className="serif" style={{ fontStyle: 'italic', color: '#5FAFBE', fontWeight: 400, fontFamily: "'Times New Roman', Georgia, serif" }}>engineer</span>
               <br />what's next.
             </h2>
             <p className="contact-desc">
@@ -264,7 +264,7 @@ function Contact({ palette, onOpen }) {
         /* ===== DESKTOP ===== */
         .contact-section {
           padding: 72px 0 0;
-          background: #FAF7F0;
+          background: #181A43;
           overflow: hidden;
           font-family: 'Red Hat Display', sans-serif;
         }
@@ -279,11 +279,11 @@ function Contact({ palette, onOpen }) {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 56px;
-          align-items: start;
+          align-items: center;
         }
 
         .contact-left {
-          padding-top: 24px;
+          padding-top: 0;
         }
 
         .contact-label {
@@ -291,7 +291,7 @@ function Contact({ palette, onOpen }) {
           font-size: 11px;
           letter-spacing: 0.2em;
           text-transform: uppercase;
-          color: #1F6E7A;
+          color: #5FAFBE;
           font-weight: 600;
         }
 
@@ -301,14 +301,14 @@ function Contact({ palette, onOpen }) {
           letter-spacing: -0.02em;
           font-weight: 900;
           margin-bottom: 28px;
-          color: #0E1136;
+          color: white;
           margin-top: 0;
         }
 
         .contact-desc {
           font-size: 17px;
           line-height: 1.55;
-          color: #0E1136;
+          color: rgba(255,255,255,0.8);
           max-width: 460px;
           margin-bottom: 32px;
           text-align: justify;
@@ -316,10 +316,10 @@ function Contact({ palette, onOpen }) {
         }
 
         .contact-form-card {
-          background: #f5f2ea;
+          background: white;
           border-radius: 16px;
           padding: 36px 44px;
-          border: 1px solid #d8d5cc;
+          border: 1px solid rgba(0,0,0,0.08);
         }
 
         .contact-form-label {
@@ -327,7 +327,7 @@ function Contact({ palette, onOpen }) {
           font-size: 11px;
           letter-spacing: 0.2em;
           text-transform: uppercase;
-          color: rgb(42, 122, 122);
+          color: #1F6E7A;
           font-weight: 600;
         }
 
@@ -361,8 +361,8 @@ function Contact({ palette, onOpen }) {
         }
 
         .role-chip.active {
-          border-color: #0f1a2a;
-          background: #0f1a2a;
+          border-color: #181a43;
+          background: #181a43;
           color: white;
         }
 

@@ -89,7 +89,6 @@ function Hero({ palette, onGoto }) {
     if (p !== undefined) {
       p.then(() => setIsVideoReady(true))
        .catch(() => {
-         // SHORT retry — 400ms not 800ms
          setTimeout(attemptPlay, 400);
        });
     }
@@ -100,48 +99,28 @@ function Hero({ palette, onGoto }) {
     const video = videoRef.current;
     if (!video) return;
 
-    // ★ KEY FIX: Set src directly (faster than <source> on iOS)
-    //   and call load() to force iOS to start downloading NOW.
     video.src = '/images/video1.mp4';
     video.load();
 
-    // Try playing immediately — works on desktop, may fail on iOS
-    // (the unlock listener below catches iOS)
     attemptPlay();
 
-    const onCanPlayThrough = () => {
-      // Enough data buffered to play without interruption
-      attemptPlay();
-    };
-
-    const onLoadedData = () => {
-      // First frame decoded — try again
-      attemptPlay();
-    };
-
-    const onPlaying = () => {
-      // Confirmed playing — show it
-      setIsVideoReady(true);
-    };
-
+    const onCanPlayThrough = () => { attemptPlay(); };
+    const onLoadedData = () => { attemptPlay(); };
+    const onPlaying = () => { setIsVideoReady(true); };
     const onTimeUpdate = () => {
-      // Seamless loop
       if (video.duration && video.duration - video.currentTime < 0.15) {
         video.currentTime = 0;
       }
     };
-
     const onEnded = () => {
       video.currentTime = 0;
       video.play().catch(() => {});
     };
-
     const onStalled = () => {
       setTimeout(() => {
         if (video && video.paused && video.readyState >= 2) video.play().catch(() => {});
       }, 800);
     };
-
     const onWaiting = () => {
       setTimeout(() => {
         if (video && video.paused && video.readyState >= 2) video.play().catch(() => {});
@@ -178,15 +157,12 @@ function Hero({ palette, onGoto }) {
 
       video.muted = true;
 
-      // On iOS, the first user gesture unlocks the audio/video context.
-      // We call load() + play() together for fastest start.
       if (video.readyState < 2) {
         video.load();
       }
       video.play()
         .then(() => setIsVideoReady(true))
         .catch(() => {
-          // One more try after a tick
           setTimeout(() => {
             video.play().then(() => setIsVideoReady(true)).catch(() => {});
           }, 200);
@@ -266,11 +242,6 @@ function Hero({ palette, onGoto }) {
     <section ref={ref} id="home" className="hero-section">
 
       <div className="hero-video-background">
-        {/*
-          ★ No <source> tag — src is set via JS in useEffect for faster iOS load.
-          ★ preload="auto" — tells the browser to start downloading immediately.
-          ★ The element still needs the attributes for SSR / initial render.
-        */}
         <video
           ref={videoRef}
           autoPlay
@@ -383,7 +354,7 @@ function Hero({ palette, onGoto }) {
         .hero-video-background {
           position: absolute; top: 0; left: 0; width: 100%; height: 100%;
           z-index: 0; overflow: hidden;
-          background: var(--bg); /* cream bg while loading — no black flash */
+          background: var(--bg);
         }
 
         .hero-video-background video {
@@ -397,7 +368,8 @@ function Hero({ palette, onGoto }) {
 
         .video-overlay {
           position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-          background: rgba(236, 232, 223, 0.75); z-index: 1;
+          background: rgba(255, 255, 255, 0.75);
+          z-index: 1;
         }
 
         .hero-container {
@@ -482,7 +454,7 @@ function Hero({ palette, onGoto }) {
           .metric p { font-size: 9px; letter-spacing: 0.3em; }
           .hero-right { display: none; }
           .hero-video-background video { filter: brightness(1.1) contrast(1.05) saturate(1.05); }
-          .video-overlay { background: rgba(236, 232, 223, 0.78); }
+          .video-overlay { background: rgba(255, 255, 255, 0.85); }
         }
 
         /* ===== TABLET PORTRAIT (≤768px) ===== */
@@ -504,7 +476,7 @@ function Hero({ palette, onGoto }) {
           .metrics { margin-top: 32px; padding-top: 20px; gap: 16px; max-width: 100%; }
           .metric-number { font-size: 28px; }
           .metric p { font-size: 8px; letter-spacing: 0.25em; }
-          .video-overlay { background: rgba(236, 232, 223, 0.82); }
+          .video-overlay { background: rgba(255, 255, 255, 0.88); }
         }
 
         /* ===== LARGE TABLET / SMALL LAPTOP (769px–1024px) ===== */
@@ -513,6 +485,7 @@ function Hero({ palette, onGoto }) {
           .hero-title { font-size: clamp(48px, 6vw, 64px); }
           .hero-desc { font-size: 16px; max-width: 85%; }
           .metrics { max-width: 70%; }
+          .video-overlay { background: rgba(255, 255, 255, 0.78); }
         }
 
         /* ===== MOBILE (≤640px) ===== */
@@ -532,6 +505,7 @@ function Hero({ palette, onGoto }) {
           .metrics { margin-top: 32px; padding-top: 20px; grid-template-columns: repeat(2, 1fr); gap: 12px; }
           .metric-number { font-size: 28px; }
           .metric p { font-size: 7px; letter-spacing: 0.25em; }
+          .video-overlay { background: rgba(255, 255, 255, 0.9); }
         }
 
         /* ===== VERY SMALL PHONES (≤380px) ===== */
@@ -540,39 +514,41 @@ function Hero({ palette, onGoto }) {
           .hero-title { font-size: 28px; }
           .hero-desc { font-size: 12.5px; }
           .btn-dark, .btn-light { padding: 9px 16px; font-size: 11.5px; }
+          .video-overlay { background: rgba(255, 255, 255, 0.92); }
         }
-          /* Desktop: Show desktop, hide mobile */
-.hero-build-desktop {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
 
-.hero-build-mobile {
-  display: none;
-}
+        /* Desktop: Show desktop, hide mobile */
+        .hero-build-desktop {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
 
-/* Mobile: Show mobile, hide desktop */
-@media (max-width: 768px) {
-  .hero-build-desktop {
-    display: none !important;
-  }
-  
-  .hero-build-mobile {
-    display: block;
-  }
-  
-  .hero-build-mobile .mobile-label {
-    display: block;
-    margin-bottom: 4px;
-  }
-  
-  .hero-build-mobile .mobile-arrow-text {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-}
+        .hero-build-mobile {
+          display: none;
+        }
+
+        /* Mobile: Show mobile, hide desktop */
+        @media (max-width: 768px) {
+          .hero-build-desktop {
+            display: none !important;
+          }
+          
+          .hero-build-mobile {
+            display: block;
+          }
+          
+          .hero-build-mobile .mobile-label {
+            display: block;
+            margin-bottom: 4px;
+          }
+          
+          .hero-build-mobile .mobile-arrow-text {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+          }
+        }
       `}</style>
     </section>
   );

@@ -122,11 +122,11 @@ function Ventures({ palette, onOpen }) {
         {/* Header */}
         <div className="reveal ventures-header">
           <div>
-            <div className="ventures-label">
+            <div className="ventures-label" style={{ color:'white' }}>
               § 02 — Our Ventures
             </div>
             <h2 className="ventures-heading">
-              <span style={{ fontWeight: 900, color: 'var(--paper)' }}>Building</span>{' '}
+              <span style={{ fontWeight: 900, color: 'white' }}>Building</span>{' '}
               <span
                 className="serif"
                 style={{
@@ -228,8 +228,8 @@ function Ventures({ palette, onOpen }) {
 
         /* ===== DESKTOP — compact spacing ===== */
         .ventures-section {
-          padding: 48px 0 52px;
-          background: #0E1136;
+          padding: 36px 0 36px;
+          background: #181A43;
           color: var(--paper);
           font-family: 'Red Hat Display', 'Red Hat Display Variable', sans-serif;
           overflow: visible;

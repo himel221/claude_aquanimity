@@ -26,7 +26,7 @@ function Partners({ palette, onOpen }) {
 
   const partnerItems = [
     { name: "Applied Bioengineering Research Incubator, BUET", short: "ABRI", kind: "Research Partner", logo: "/images/ibr.png", website: "https://www.facebook.com/ABRI.BUET/" },
-    { name: "IQ Consult GmbH", short: "IQC", kind: "Implementation Partner", logo: "/images/iqc.png", website: "https://iqc.org.bd" },
+    { name: "IQ Consult GmbH", short: "IQC", kind: "Implementation Partner", logo: "/images/iqc.png", website: "#" },
     { name: "National Heart Foundation of Bangladesh", short: "Heart Foundation Bangladesh", kind: "Academic Partner", logo: "/images/heart.png", website: "https://www.nhf.org.bd/" },
     { name: "Diabetic Association of Bangladesh", short: "Diabetic Association of Bangladesh", kind: "Academic Partner", logo: "/images/dia.png", website: "https://www.dab-bd.org/" },
     { name: "Centre for Global Health Research, BADAS", short: "Centre for Global Health Research", kind: "Academic Partner", logo: "/images/cghr.png", website: "https://cghr-badas.org/" },
@@ -183,15 +183,15 @@ function Partners({ palette, onOpen }) {
         .reveal.in { opacity: 1; transform: translateY(0); }
 
         .partners-section {
-          padding: 72px 0 72px;
-          background: #ece8df;
+          padding: 36px 0 36px;
+          background: #181A43;
           overflow: hidden;
           font-family: 'Red Hat Display', sans-serif;
         }
         .partners-wrap { max-width: 1400px; margin: 0 auto; padding: 0 32px; }
         .partners-header { margin-bottom: 28px; }
-        .partners-label { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #1F6E7A; font-weight: 600; }
-        .partners-heading { font-size: 38.7px; line-height: 1.05; letter-spacing: -0.02em; max-width: 720px; font-weight: 900; color: #0E1136; margin: 0; }
+        .partners-label { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: white; font-weight: 600; }
+        .partners-heading { font-size: 38.7px; line-height: 1.05; letter-spacing: -0.02em; max-width: 720px; font-weight: 900; color: white; margin: 0; }
 
         .partner-track { display: flex; gap: 24px; will-change: transform; width: max-content; }
         .partner-card {
@@ -299,7 +299,7 @@ function Partners({ palette, onOpen }) {
           .partners-mobile-logo {
             width: 100%;
             height: 240px;
-            background: linear-gradient(135deg, #f8f6f1, #f0ece4);
+            background: white;
             display: flex;
             align-items: center;
             justify-content: center;

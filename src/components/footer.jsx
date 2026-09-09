@@ -208,16 +208,16 @@ function FooterCTA({ palette, onOpen }) {
         .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
         .reveal.in { opacity: 1; transform: translateY(0); }
 
-        .contact-section { padding: 72px 0 0; background: #F2EDE3; font-family: 'Red Hat Display', sans-serif; }
+        .contact-section { padding: 72px 0 0; background: #181A43; font-family: 'Red Hat Display', sans-serif; }
         .contact-wrap { max-width: 1400px; margin: 0 auto; padding: 0 32px; }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-        .contact-label { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
-        .contact-heading { font-size: clamp(32px, 6vw, 88px); line-height: 1; letter-spacing: -0.03em; font-weight: 900; color: #0e1136; margin: 0; }
-        .contact-desc { margin-top: 24px; font-size: 17px; color: #0E1136; line-height: 1.55; max-width: 480px; font-weight: 400; }
-        .contact-form { background: #FAF7F0; padding: 32px; border: 1px solid var(--rule); border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+        .contact-label { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: white; font-weight: 600; }
+        .contact-heading { font-size: clamp(32px, 6vw, 88px); line-height: 1; letter-spacing: -0.03em; font-weight: 900; color:white; margin: 0; }
+        .contact-desc { margin-top: 24px; font-size: 17px; color: white; line-height: 1.55; max-width: 480px; font-weight: 400; }
+        .contact-form { background: white; padding: 32px; border: 1px solid var(--rule); border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
         .tags-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
         .tag-chip { padding: 7px 16px; border-radius: 40px; border: 1px solid var(--rule); background: transparent; color: #0E1136; font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: 'Red Hat Display', sans-serif; }
-        .tag-chip.active { border-color: var(--accent); background: var(--accent); color: white; }
+        .tag-chip.active { border-color: #181a43; background: #181A43; color: white; }
         .submit-btn { width: 100%; justify-content: center; margin-top: 12px; padding: 13px 24px; background: #0E1136; color: white; border: none; border-radius: 40px; display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; transition: all 0.3s ease; font-family: 'Red Hat Display', sans-serif; }
         .submit-btn:hover:not(:disabled) { background: #1a1f4a; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
 
@@ -307,7 +307,8 @@ function Footer() {
   };
 
   return (
-    <footer className="site-footer">
+   
+   <footer className="site-footer">
       <div className="ftr-grid">
         <div>
           <div style={{ marginBottom: 16 }}>
@@ -333,21 +334,28 @@ function Footer() {
         </div>
       </div>
       <div className="ftr-bottom">
-        <div className="ftr-copy">© {new Date().getFullYear()} AQUANIMITY GROUP. ALL RIGHTS RESERVED.</div>
+        <div className="ftr-copy">© {new Date().getFullYear()} AQUANIMITY GROUP LTD. ALL RIGHTS RESERVED.</div>
         <div className="ftr-copy">DHAKA, BANGLADESH</div>
       </div>
 
       <style>{`
-        .site-footer { margin-top: 72px; padding-top: 40px; padding-bottom: 32px; border-top: 1px solid var(--rule); font-family: 'Red Hat Display', sans-serif; }
+        .site-footer { 
+          margin-top: 72px; 
+          padding-top: 40px; 
+          padding-bottom: 32px; 
+          border-top: 1px solid rgba(255,255,255,0.1); 
+          font-family: 'Red Hat Display', sans-serif;
+          background: #181A43; 
+        }
         .ftr-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
-        .footer-logo { height: 36px; width: auto; object-fit: contain; }
-        .footer-desc { font-size: 13px; color: #0E1136; max-width: 320px; line-height: 1.55; font-weight: 400; text-align: justify; }
-        .ftr-col-title { margin-bottom: 12px; font-size: 11px; letter-spacing: 0.2em; color: var(--accent); font-weight: 600; }
-        .ftr-link { font-size: 13px; color: #0E1136; text-decoration: none; font-weight: 400; transition: color 0.2s ease; cursor: pointer; display: inline-block; }
+        .footer-logo { height: 36px; width: auto; object-fit: contain; filter: brightness(0) invert(1); }
+        .footer-desc { font-size: 13px; color: white; max-width: 320px; line-height: 1.55; font-weight: 400; text-align: justify; }
+        .ftr-col-title { margin-bottom: 12px; font-size: 11px; letter-spacing: 0.2em; color: white; font-weight: 900; }
+        .ftr-link { font-size: 13px; color: white; text-decoration: none; font-weight: 400; transition: color 0.2s ease; cursor: pointer; display: inline-block; }
         .ftr-link:hover { color: var(--accent); }
-        .ftr-text { font-size: 13px; color: #0E1136; font-weight: 400; }
-        .ftr-bottom { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--rule); display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; }
-        .ftr-copy { font-size: 10px; letter-spacing: 0.18em; color: var(--muted); font-weight: 500; }
+        .ftr-text { font-size: 13px; color: white; font-weight: 400; }
+        .ftr-bottom { margin-top: 48px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; }
+        .ftr-copy { font-size: 10px; letter-spacing: 0.18em; color: white; font-weight: 500; }
 
         @media (max-width: 900px) {
           .ftr-grid { grid-template-columns: 1fr 1fr !important; gap: 28px !important; }
@@ -372,6 +380,7 @@ function Footer() {
         }
       `}</style>
     </footer>
+
   );
 }
 

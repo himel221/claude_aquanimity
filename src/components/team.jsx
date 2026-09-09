@@ -180,11 +180,11 @@ const MemberDetailsInline = ({ member, onClose }) => {
                 <span style={{ fontSize: '20px' }}>🎓</span> Education
               </h3>
               <div style={{
-                background: 'var(--paper)',
+                background: '#181a43',
                 padding: '14px',
                 borderRadius: '14px',
                 fontSize: '13px',
-                color: '#0E1136',
+                color: 'white',
                 lineHeight: 1.5,
                 textAlign: 'justify'
               }}>
@@ -822,8 +822,8 @@ function Team({ palette, onOpen }) {
       <style>{`
         /* ===== DESKTOP ===== */
         .team-section {
-          padding: 72px 0 72px;
-          background: var(--paper);
+          padding: 36px 0 36px;
+          background: white;
         }
 
         .team-wrap {
@@ -1031,7 +1031,7 @@ function Team({ palette, onOpen }) {
           width: 36px;
           height: 36px;
           border-radius: 50%;
-          background: var(--paper);
+          background: white;
           border: 1px solid var(--rule);
           cursor: pointer;
           font-size: 18px;
@@ -1437,6 +1437,108 @@ function Team({ palette, onOpen }) {
             transform: scale(0.96);
           }
         }
+
+        /* Member Details Inline - Updated to match Institute design */
+.member-details-wrapper {
+  margin-top: 48px;
+  margin-bottom: 48px;
+  background: white;
+  border-radius: 32px;
+  overflow: hidden;
+  animation: fadeInUp 0.5s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.mdi-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 0;
+  min-height: 500px;
+}
+
+.mdi-photo {
+  background: linear-gradient(135deg, #181A43 0%, #2A2D5E 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.mdi-photo-frame {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  border: 3px solid white;
+}
+
+.mdi-content {
+  padding: 40px;
+  overflow-y: auto;
+  max-height: 600px;
+  background: white;
+}
+
+.mdi-title-label {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #1F6E7A;
+  font-weight: 600;
+  margin-bottom: 8px;
+  white-space: pre-line;
+  line-height: 1.3;
+}
+
+.mdi-name {
+  font-size: 32px;
+  font-weight: 700;
+  color: #181A43;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.mdi-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background:white;
+  border: 1px solid white;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #181A43;
+}
+
+.mdi-close-btn:hover {
+  background: #E8E0D0;
+}
+
+.mdi-section-heading {
+  font-size: 16px;
+  font-weight: 600;
+  color: #181A43;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mdi-achievement-box {
+  background: linear-gradient(135deg, rgba(24,26,67,0.05) 0%, rgba(31,110,122,0.05) 100%);
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #181A43;
+  line-height: 1.5;
+  border-left: 3px solid #1F6E7A;
+}
       `}</style>
     </section>
   );
