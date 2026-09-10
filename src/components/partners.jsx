@@ -252,7 +252,7 @@ function Partners({ palette, onOpen }) {
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            border: 1.5px solid rgba(0,0,0,0.15);
+            border: 1.5px solid white;
             background: transparent;
             color: white;
             font-size: 14px;

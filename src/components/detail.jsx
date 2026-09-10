@@ -398,7 +398,7 @@ function Footer() {
           alignItems: 'center' 
         }}>
           <div className="mono" style={{ fontSize: 11, letterSpacing: '0.18em', color: 'white', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 500 }}>
-            © {new Date().getFullYear()} AQUANIMITY GROUP. ALL RIGHTS RESERVED.
+            © {new Date().getFullYear()} AQUANIMITY BANGLADESH LTD. ALL RIGHTS RESERVED.
           </div>
           <div className="mono" style={{ fontSize: 11, letterSpacing: '0.18em', color: 'white', fontFamily: "'Red Hat Display', sans-serif", fontWeight: 500 }}>
             DHAKA, BANGLADESH

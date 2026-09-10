@@ -335,7 +335,7 @@ function Footer() {
         </div>
       </div>
       <div className="ftr-bottom">
-        <div className="ftr-copy">© {new Date().getFullYear()} AQUANIMITY GROUP LTD. ALL RIGHTS RESERVED.</div>
+        <div className="ftr-copy">© {new Date().getFullYear()} AQUANIMITY BANGLADESH LTD. ALL RIGHTS RESERVED.</div>
         <div className="ftr-copy">DHAKA, BANGLADESH</div>
       </div>
 

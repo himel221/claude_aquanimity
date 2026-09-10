@@ -261,7 +261,7 @@ function Ventures({ palette, onOpen }) {
         }
 
         .ventures-heading {
-          font-size: clamp(30px, 3vw, 58px);
+          font-size: 38.7px;
           line-height: 0.98;
           letter-spacing: -0.03em;
           color: var(--paper);
