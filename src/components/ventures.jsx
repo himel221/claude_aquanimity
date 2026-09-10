@@ -126,20 +126,21 @@ function Ventures({ palette, onOpen }) {
               § 02 — Our Ventures
             </div>
             <h2 className="ventures-heading">
-              <span style={{ fontWeight: 900, color: 'white' }}>Building</span>{' '}
+              <span style={{ fontWeight: 900, color: 'white', fontSize: 'clamp(30px, 3vw, 58px)' }}>Building</span>{' '}
               <span
                 className="serif"
                 style={{
                   fontStyle: 'italic',
                   color: 'var(--accent-2)',
                   fontWeight: 400,
-                  fontFamily: "'Times New Roman', Georgia, serif"
+                  fontFamily: "'Times New Roman', Georgia, serif",
+                  fontSize: 'clamp(30px, 3vw, 58px)'
                 }}
               >
                 category-defining
               </span>
               <br />
-              <span style={{ fontWeight: 900, color: 'var(--paper)' }}>ventures.</span>
+              <span style={{ fontWeight: 900, color: 'var(--paper)', fontSize: 'clamp(30px, 3vw, 58px)' }}>ventures.</span>
             </h2>
           </div>
         </div>
@@ -260,16 +261,14 @@ function Ventures({ palette, onOpen }) {
           font-weight: 600;
         }
 
-        .ventures-heading {
-          font-size: 38.7px;
-          line-height: 0.98;
-          letter-spacing: -0.03em;
-          color: var(--paper);
-          max-width: 760px;
-          font-weight: 900;
-          font-family: 'Red Hat Display', sans-serif;
-          margin: 0;
-        }
+font-size: clamp(30px, 3vw, 58px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    max-width: 700px;
+    font-weight: 900;
+    margin: 0px;
+    color: rgb(0, 0, 0);
+    font-family: "Red Hat Display", sans-serif;
 
         .ventures-nav {
           display: flex;
@@ -508,7 +507,7 @@ function Ventures({ palette, onOpen }) {
           }
 
           .ventures-heading {
-            font-size: clamp(28px, 8vw, 42px) !important;
+            font-size: clamp(30px, 3vw, 58px); !important;
             line-height: 1.04 !important;
           }
         }

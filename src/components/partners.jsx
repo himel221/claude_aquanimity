@@ -110,9 +110,9 @@ function Partners({ palette, onOpen }) {
         <div className="reveal partners-header">
           <div>
             <div className="partners-label">§ 04 — Our Partners</div>
-            <h2 className="partners-heading">
+            <h2 className="partners-heading" style={{fontSize: 'clamp(30px, 3vw, 58px)'}}>
               Partnering with leading{' '}
-              <span className="serif" style={{ fontStyle: 'italic', color: "#1F6E7A", fontWeight: 400, fontFamily: "'Times New Roman', Georgia, serif" }}>
+              <span className="serif" style={{ fontStyle: 'italic', color: "#1F6E7A", fontWeight: 400, fontFamily: "'Times New Roman', Georgia, serif", fontSize: 'clamp(30px, 3vw, 58px)' }}>
                 institutions.
               </span>
             </h2>
@@ -191,7 +191,7 @@ function Partners({ palette, onOpen }) {
         .partners-wrap { max-width: 1400px; margin: 0 auto; padding: 0 32px; }
         .partners-header { margin-bottom: 28px; }
         .partners-label { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: white; font-weight: 600; }
-        .partners-heading { font-size: 38.7px; line-height: 1.05; letter-spacing: -0.02em; max-width: 720px; font-weight: 900; color: white; margin: 0; }
+        .partners-heading { font-size: clamp(30px, 3vw, 58px); line-height: 1.05; letter-spacing: -0.02em; max-width: 720px; font-weight: 900; color: white; margin: 0; }
 
         .partner-track { display: flex; gap: 24px; will-change: transform; width: max-content; }
         .partner-card {
