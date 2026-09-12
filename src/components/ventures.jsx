@@ -263,7 +263,7 @@ function Ventures({ palette, onOpen }) {
 
         .ventures-nav {
           display: flex;
-          gap: 12px;
+          gap: 15px;
           margin-bottom: 36px;        /* ← barano hoyeche: 20px theke 36px */
           flex-wrap: wrap;
         }
