@@ -261,19 +261,10 @@ function Ventures({ palette, onOpen }) {
           font-weight: 600;
         }
 
-font-size: clamp(30px, 3vw, 58px);
-    line-height: 1.08;
-    letter-spacing: -0.025em;
-    max-width: 700px;
-    font-weight: 900;
-    margin: 0px;
-    color: rgb(0, 0, 0);
-    font-family: "Red Hat Display", sans-serif;
-
         .ventures-nav {
           display: flex;
-          gap: 8px;
-          margin-bottom: 20px;
+          gap: 12px;
+          margin-bottom: 36px;        /* ← barano hoyeche: 20px theke 36px */
           flex-wrap: wrap;
         }
 
@@ -349,7 +340,7 @@ font-size: clamp(30px, 3vw, 58px);
           letter-spacing: 0.2em;
           text-transform: uppercase;
           color: var(--accent-2);
-          margin-bottom: 12px;
+          margin-bottom: 20px;        /* ← barano hoyeche: 12px theke 20px */
           font-weight: 600;
           font-family: 'Red Hat Display', sans-serif;
           background: rgba(0,0,0,0.3);
@@ -363,7 +354,7 @@ font-size: clamp(30px, 3vw, 58px);
           font-weight: 700;
           letter-spacing: -0.03em;
           color: var(--paper);
-          margin: 0 0 12px 0;
+          margin: 0 0 18px 0;        /* ← barano hoyeche: 12px theke 18px */
           line-height: 1.08;
           font-family: 'Red Hat Display', sans-serif;
           text-shadow: 0 2px 30px rgba(0,0,0,0.3);
@@ -464,7 +455,7 @@ font-size: clamp(30px, 3vw, 58px);
 
           .ventures-nav {
             gap: 6px !important;
-            margin-bottom: 20px !important;
+            margin-bottom: 24px !important;   /* ← barano hoyeche: 20px theke 24px */
           }
 
           .venture-tab {
@@ -486,12 +477,12 @@ font-size: clamp(30px, 3vw, 58px);
           .venture-tag {
             font-size: 9px !important;
             padding: 5px 12px !important;
-            margin-bottom: 10px !important;
+            margin-bottom: 14px !important;   /* ← barano hoyeche: 10px theke 14px */
           }
 
           .venture-title {
             font-size: 24px !important;
-            margin-bottom: 10px !important;
+            margin-bottom: 14px !important;   /* ← barano hoyeche: 10px theke 14px */
           }
 
           .venture-blurb {
@@ -507,7 +498,7 @@ font-size: clamp(30px, 3vw, 58px);
           }
 
           .ventures-heading {
-            font-size: clamp(30px, 3vw, 58px); !important;
+            font-size: clamp(30px, 3vw, 58px) !important;
             line-height: 1.04 !important;
           }
         }
@@ -524,7 +515,7 @@ font-size: clamp(30px, 3vw, 58px);
 
           .ventures-nav {
             gap: 5px !important;
-            margin-bottom: 16px !important;
+            margin-bottom: 20px !important;   /* ← barano hoyeche: 16px theke 20px */
           }
 
           .venture-tab {
@@ -540,12 +531,12 @@ font-size: clamp(30px, 3vw, 58px);
           .venture-tag {
             font-size: 8.5px !important;
             padding: 4px 10px !important;
-            margin-bottom: 8px !important;
+            margin-bottom: 12px !important;   /* ← barano hoyeche: 8px theke 12px */
           }
 
           .venture-title {
             font-size: 24px !important;
-            margin-bottom: 8px !important;
+            margin-bottom: 12px !important;   /* ← barano hoyeche: 8px theke 12px */
           }
 
           .venture-blurb {
